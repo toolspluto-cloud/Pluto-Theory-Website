@@ -19,10 +19,15 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
   const second = await popText(page);
   results.secondPage = { firstPage: first, secondPage: second, pass: first === null && /following us/.test(second || "") };
   // dismiss with the X
+  const target = await page.evaluate(() => { // what a click on the X's centre would actually hit
+    const r = document.querySelector(".pt-pop-x").getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const el = document.elementFromPoint(x, y);
+    return { x: Math.round(x), y: Math.round(y), hits: el ? `${el.tagName.toLowerCase()}.${String(el.className).split(" ")[0]}` : null, viewport: `${innerWidth}x${innerHeight}` };
+  });
   await page.click(".pt-pop-x");
   // it fades out for 0.3 s, then goes; allow slower machines up to 3 s
   const gone = await page.waitForFunction(() => !document.querySelector(".pt-pop"), { timeout: 3000 }).then(() => true, () => false);
-  results.dismiss = { gone, pass: gone };
+  results.dismiss = { gone, pass: gone, ...(gone ? {} : { target, stillShowing: await popText(page), classes: await page.evaluate(() => document.querySelector(".pt-pop")?.className) }) };
   await page.close();
 }
 // 2. Not while typing in the form, and capped: scroll trigger right after another pop-up is blocked by the 60 s gap
