@@ -2,6 +2,7 @@
 scripts
 tests
 tools
+.github
 
 # Full-size gallery photos stay here; only the web-sized copies in assets/gallery go online
 assets/gallery/originals

@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer-core";
 const base = process.argv[2];
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const page = await browser.newPage();
 await page.setViewport({ width: 1366, height: 900 });
 await page.evaluateOnNewDocument(() => {

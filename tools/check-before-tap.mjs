@@ -1,7 +1,7 @@
 // A visitor who only scrolls (never clicks): voices stay silent with the hint; the first real click starts them.
 import puppeteer from "puppeteer-core";
 const base = process.argv[2] || "http://localhost:8090";
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const page = await browser.newPage();
 await page.setViewport({ width: 1366, height: 900 });
 await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]);

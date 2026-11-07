@@ -9,7 +9,7 @@ const pages = process.argv[3] === "clean" ? ["", "what-we-are", "branding", "pho
 const sizes = { desktop: { width: 1366, height: 820 }, phone: { width: 375, height: 740, isMobile: true, hasTouch: true, deviceScaleFactor: 1 } };
 fs.mkdirSync("shots", { recursive: true });
 
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--autoplay-policy=no-user-gesture-required"] });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--autoplay-policy=no-user-gesture-required"] });
 const report = [];
 for (const [size, vp] of Object.entries(sizes)) {
   for (const p of pages) {

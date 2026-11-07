@@ -1,7 +1,7 @@
 // Screenshots of the contact page top, the story steps and the pillar cards at a few widths.
 import puppeteer from "puppeteer-core";
 const base = process.argv[2] || "http://localhost:8090";
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const show = (p) => p.evaluate(() => document.querySelectorAll(".reveal").forEach((r) => r.classList.add("is-visible")));
 for (const [w, h] of [[1440, 900], [1366, 800], [390, 844]]) {
   const p = await browser.newPage();

@@ -4,7 +4,8 @@
   "description": "Tests and helpers for the Pluto Theory website (not part of the website itself)",
   "scripts": {
     "serve": "node serve.js .. 8090",
-    "test": "node ../tests/dialogue.test.mjs && node check-site.mjs http://localhost:8090 clean && node check-form.mjs http://localhost:8090"
+    "test": "node ci.mjs",
+    "test:quick": "node ci.mjs quick"
   },
   "type": "commonjs",
   "dependencies": {

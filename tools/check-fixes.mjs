@@ -2,7 +2,7 @@
 import puppeteer from "puppeteer-core";
 
 const base = process.argv[2] || "http://localhost:8090";
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--autoplay-policy=no-user-gesture-required"] });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true, args: ["--autoplay-policy=no-user-gesture-required"] });
 const results = {};
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 

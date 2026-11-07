@@ -1,0 +1,50 @@
+# Tests the website on every push and pull request: every page on desktop and phone, the contact form,
+# the chat and its voices, the pop-ups. The same checks run on your computer with `npm test` in tools/.
+name: Website tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch: # a "Run workflow" button on the Actions tab
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true # a newer push replaces a run that's still going
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: tools
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install test packages
+        run: npm ci
+
+      - name: Use the runner's Google Chrome
+        # GitHub's Linux machines block Chrome's own sandbox, so start it without one (fine for testing our own site)
+        run: |
+          printf '#!/bin/sh\nexec google-chrome --no-sandbox "$@"\n' | sudo tee /usr/local/bin/chrome-ci > /dev/null
+          sudo chmod +x /usr/local/bin/chrome-ci
+          echo "CHROME_PATH=/usr/local/bin/chrome-ci" >> "$GITHUB_ENV"
+          google-chrome --version
+
+      - name: Run the website checks
+        run: node ci.mjs
+
+      - name: Save screenshots if something failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: tools/shots/
+          retention-days: 7

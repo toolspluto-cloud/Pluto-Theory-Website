@@ -6,7 +6,7 @@ import puppeteer from "puppeteer-core";
 const base = process.argv[2] || "http://localhost:8090";
 const slow = Number(process.argv[3] || 1);
 const net = process.argv[4] || "fast";
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const page = await browser.newPage();
 await page.setViewport({ width: 1366, height: 900 });
 const cdp = await page.createCDPSession();

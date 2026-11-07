@@ -19,7 +19,7 @@ const lines = new Map();
 for (const [scene, s] of Object.entries(ctx.window.PT_SCENES))
   for (const l of s.lines) if (/[a-z]/i.test(l.t)) lines.set(lineId(l.s, l.t), { scene, who: l.s, text: l.t });
 
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const page = await browser.newPage();
 await page.goto(`${base}/work.html`);
 const stats = await page.evaluate(async (ids) => {

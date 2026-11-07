@@ -2,7 +2,7 @@
 import puppeteer from "puppeteer-core";
 import fs from "node:fs";
 const base = process.argv[2] || "http://localhost:8090";
-const b = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const b = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 const p = await b.newPage();
 let out = "";
 for (const pg of ["", "what-we-are", "work", "contact", "missing-page"]) {

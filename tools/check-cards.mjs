@@ -1,7 +1,7 @@
 // Measures and screenshots the two mascot cards at several screen widths.
 import puppeteer from "puppeteer-core";
 const base = process.argv[2] || "http://localhost:8090";
-const browser = await puppeteer.launch({ executablePath: "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
+const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe", headless: true });
 for (const w of [1600, 1366, 1024, 800, 375]) {
   const page = await browser.newPage();
   await page.setViewport({ width: w, height: 900 });
