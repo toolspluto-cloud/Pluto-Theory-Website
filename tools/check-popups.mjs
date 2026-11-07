@@ -20,8 +20,9 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
   results.secondPage = { firstPage: first, secondPage: second, pass: first === null && /following us/.test(second || "") };
   // dismiss with the X
   await page.click(".pt-pop-x");
-  await wait(500);
-  results.dismiss = { gone: (await popText(page)) === null, pass: (await popText(page)) === null };
+  // it fades out for 0.3 s, then goes; allow slower machines up to 3 s
+  const gone = await page.waitForFunction(() => !document.querySelector(".pt-pop"), { timeout: 3000 }).then(() => true, () => false);
+  results.dismiss = { gone, pass: gone };
   await page.close();
 }
 // 2. Not while typing in the form, and capped: scroll trigger right after another pop-up is blocked by the 60 s gap
