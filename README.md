@@ -29,7 +29,19 @@ When an HTML page changes, bump the `?v=NN` number on its CSS and JS links (on e
 - `voices/`: Plu and Theo's voice clips. Made with `scripts/generate-voices.mjs` (run `npm install` in `scripts/` first).
 - `gallery.html`, `gallery.js`, `gallery-data.js`: the gallery. To add photos, put them in `assets/gallery/originals/{branding,photography,ai-photoshoot}/` and run `py scripts/build_gallery.py`. The full-size originals stay on your computer (they're in `.gitignore`); only the web-sized copies are committed.
 - `vercel.json`: redirects, clean addresses, security headers and caching.
-- `.vercelignore`: files kept in the repository but not put on the website (`scripts/`, `tests/`, this README).
+- `.vercelignore`: files kept in the repository but not put on the website (`scripts/`, `tests/`, `tools/`, this README).
 - `tests/`: `node tests/dialogue.test.mjs` checks the chat script.
+- `tools/`: browser tests and helpers, run on your computer (they use the installed Google Chrome). See below.
+
+## Testing before you push
+
+Once, in `tools/`: `npm install`. Then, in `tools/`:
+
+```bash
+npm run serve      # the site at http://localhost:8090, set up like Vercel (keep this running)
+npm test           # in a second window: chat script, every page on desktop and phone, contact form
+```
+
+Other checks in `tools/`, each run as `node <file> http://localhost:8090`: `check-clips.mjs` (voice clips), `check-voice-flow.mjs` and `check-voice-edges.mjs` (the talking chat), `check-popups.mjs`, `check-cards.mjs`, `check-before-tap.mjs`, `webkit-clap.mjs` (the high five in Safari's engine; needs `npx playwright install webkit` once). `check-site.mjs` saves screenshots in `tools/shots/`. Reports and screenshots aren't committed.
 
 The contact form sends to Web3Forms. Its access key in `contact.html` is meant to be public.

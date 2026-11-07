@@ -11,3 +11,11 @@ assets/gallery/originals
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Test output (screenshots and reports the tools write)
+tools/shots
+tools/*.json
+!tools/package.json
+!tools/package-lock.json
+tools/site-copy.txt
+__pycache__
