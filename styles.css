@@ -1139,6 +1139,7 @@ body.is-leaving .curtain i { animation: none; transform: scaleY(1); transform-or
 .pt-pop.is-out { opacity: 0; transform: translateY(12px); }
 .pt-pop-lines { display: grid; gap: 8px; }
 .pt-pop-line { display: flex; gap: 9px; align-items: flex-start; margin: 0; font-size: 14px; line-height: 1.35; animation: pop-line 0.25s ease-out; }
+.pt-pop-line.is-wait { visibility: hidden; animation: none; } /* space kept until the line is said, so the pop-up never grows */
 .pt-pop-line b { display: block; font: 700 11px/1.2 var(--display); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1px; }
 .pt-pop-line .av { flex: none; width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font: 800 12px/1 var(--display); }
 .pt-pop-line.is-P .av { background: var(--purple); color: #fff; }

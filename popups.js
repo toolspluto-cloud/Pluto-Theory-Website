@@ -56,23 +56,27 @@
     const list = box.querySelector(".pt-pop-lines");
     document.body.appendChild(box);
     let wait = 0;
-    const add = ({ s, t }) => {
+    // Every line is placed at once, hidden, so the pop-up is its full height from the start and the ✕ never
+    // moves (it sits at the bottom of the screen, so growing would push the ✕ up, away from the pointer).
+    const lines = LINES[kind];
+    const rows = lines.map(({ s, t }) => {
       const row = document.createElement("p");
-      row.className = `pt-pop-line is-${s}`;
+      row.className = `pt-pop-line is-${s} is-wait`;
       row.innerHTML = `<span class="av" aria-hidden="true">${s}</span><span><b>${NAMES[s]}</b></span>`;
       row.lastChild.append(document.createTextNode(t));
       list.appendChild(row);
-    };
-    const lines = LINES[kind];
+      return row;
+    });
+    const reveal = (row) => row.classList.remove("is-wait");
     lines.forEach((line, i) => {
-      if (reduced || i === 0) add(line); else later(() => add(line), wait);
+      if (reduced || i === 0) reveal(rows[i]); else later(() => reveal(rows[i]), wait);
       wait += 1300 + line.t.length * 30;
     });
     later(hide, (reduced ? 0 : wait) + 5000);
     // Hovering shows the rest at once and keeps it open; moving away gives a few more seconds
     box.addEventListener("pointerenter", () => {
       timers.forEach(clearTimeout); timers = [];
-      lines.slice(list.children.length).forEach(add);
+      rows.forEach(reveal);
     });
     box.addEventListener("pointerleave", () => later(hide, 4000));
     return true;

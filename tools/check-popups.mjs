@@ -11,23 +11,27 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
 {
   const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 900 });
+  await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "no-preference" }]); // lines one by one, as most visitors see them
   await page.goto(`${base}/what-we-are`, { waitUntil: "networkidle0" });
   await wait(7000);
   const first = await popText(page);
   await page.goto(`${base}/contact`, { waitUntil: "networkidle0" });
-  await wait(9000);
+  // click the ✕ as soon as it has popped in, while later lines are still to come (hovering reveals them,
+  // which used to make the pop-up grow and push the ✕ away from the pointer)
+  await page.waitForSelector(".pt-pop", { timeout: 15000 }).catch(() => {});
+  await wait(500);
   const second = await popText(page);
   results.secondPage = { firstPage: first, secondPage: second, pass: first === null && /following us/.test(second || "") };
-  // dismiss with the X
-  const target = await page.evaluate(() => { // what a click on the X's centre would actually hit
-    const r = document.querySelector(".pt-pop-x").getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
-    const el = document.elementFromPoint(x, y);
-    return { x: Math.round(x), y: Math.round(y), hits: el ? `${el.tagName.toLowerCase()}.${String(el.className).split(" ")[0]}` : null, viewport: `${innerWidth}x${innerHeight}` };
-  });
+  // The ✕ must stay put when the pointer arrives (hovering shows the remaining lines at once), then close it
+  const xTop = () => page.evaluate(() => Math.round(document.querySelector(".pt-pop-x")?.getBoundingClientRect().top));
+  const before = await xTop();
+  await page.hover(".pt-pop-lines");
+  await wait(100);
+  const afterHover = await xTop();
   await page.click(".pt-pop-x");
   // it fades out for 0.3 s, then goes; allow slower machines up to 3 s
   const gone = await page.waitForFunction(() => !document.querySelector(".pt-pop"), { timeout: 3000 }).then(() => true, () => false);
-  results.dismiss = { gone, pass: gone, ...(gone ? {} : { target, stillShowing: await popText(page), classes: await page.evaluate(() => document.querySelector(".pt-pop")?.className) }) };
+  results.dismiss = { xTopBefore: before, xTopAfterHover: afterHover, gone, pass: before === afterHover && gone };
   await page.close();
 }
 // 2. Not while typing in the form, and capped: scroll trigger right after another pop-up is blocked by the 60 s gap
