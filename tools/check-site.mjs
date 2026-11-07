@@ -24,6 +24,9 @@ for (const [size, vp] of Object.entries(sizes)) {
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += 250) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); }
       await new Promise((r) => setTimeout(r, 1500));
+      // a section the quick scroll skipped past on a busy machine: go to it, as a visitor would, before judging
+      for (const el of document.querySelectorAll(".reveal:not(.is-visible)")) { el.scrollIntoView({ block: "center" }); await new Promise((r) => setTimeout(r, 400)); }
+      await new Promise((r) => setTimeout(r, 800));
     });
     const info = await page.evaluate(() => {
       const wide = [...document.querySelectorAll("body *")].filter((e) => { const r = e.getBoundingClientRect(); return r.width && r.right > innerWidth + 1 && getComputedStyle(e).position !== "fixed"; })
