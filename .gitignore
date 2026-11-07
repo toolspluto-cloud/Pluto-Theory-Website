@@ -1,0 +1,13 @@
+# Vercel's link to this project (stays on this computer)
+.vercel
+
+# Installed packages for the voice tool (reinstall with: npm install, in scripts/)
+node_modules
+
+# Full-size gallery photos stay on this computer; only the web-sized copies are kept
+assets/gallery/originals
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,10 @@
+{
+  "name": "pluto-theory-voice-tools",
+  "private": true,
+  "type": "module",
+  "description": "Records the Chaos Console lines with the free Kokoro voice model. Run: npm install, then node generate-voices.mjs",
+  "dependencies": {
+    "@breezystack/lamejs": "^1.2.7",
+    "kokoro-js": "^1.2.1"
+  }
+}
