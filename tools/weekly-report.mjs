@@ -168,7 +168,7 @@ export async function buildReport({ prev = "", gscKey = process.env.GSC_SERVICE_
       }
       if (g.topPages.length) {
         out.push("**Pages**", "", "| Page | Clicks | Shown | Position |", "|---|---|---|---|");
-        for (const p of g.topPages) out.push(`| ${p.keys[0].replace(/^https?:\/\/(www\.)?plutotheory\.com/, "") || "/"} | ${p.clicks}${delta(p.clicks, p.prev?.clicks)} | ${p.impressions} | ${num(p.position)} |`);
+        for (const p of g.topPages) out.push(`| ${(p.keys[0].replace(/^https?:\/\/www\.plutotheory\.com/, "") || "/").replace(/^https?:\/\/plutotheory\.com(\/?.*)$/, (_, rest) => `${rest || "/"} (old address without www)`)} | ${p.clicks}${delta(p.clicks, p.prev?.clicks)} | ${p.impressions} | ${num(p.position)} |`);
         out.push("");
       }
     } catch (e) { out.push(`_Couldn't read Search Console: ${e.message}_`, ""); notes.push("google"); }
