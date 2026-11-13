@@ -536,7 +536,8 @@
     const sfx = (n) => window.ptSound && window.ptSound(n);
     const ROUTES = {
       portfolio: "/work", services: "/what-we-are", story: "/what-we-are", contact: "/contact",
-      branding: "/what-we-are#branding", pr: "/what-we-are#pluto-times", night: "/what-we-are#pluto-night"
+      branding: "/what-we-are#branding", pr: "/what-we-are#pluto-times", night: "/what-we-are#pluto-night",
+      ai: "/ai-automation", agents: "/ai-agents", contactai: "/contact?pillar=AI%20automation", contactagents: "/contact?pillar=AI%20agents"
     };
     const CHAOS = [[0, "Mildly suspicious"], [3, "Questionable"], [6, "HR notified"], [10, "Iconic"]];
     const KEY = "pt-chaos-console";
@@ -837,7 +838,7 @@
 
     function showChoices(scene, my) {
       choicesEl.innerHTML = "";
-      scene.choices.slice(0, 6).forEach(([label, to], k) => {
+      scene.choices.slice(0, 7).forEach(([label, to], k) => {
         const action = to.startsWith("ACTION:") ? to.slice(7) : null;
         const href = action && ROUTES[action];
         const el = document.createElement(href ? "a" : "button");

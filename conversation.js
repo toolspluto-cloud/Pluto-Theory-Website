@@ -2,12 +2,13 @@
 // Scripted scenes are word for word (with the mascots' names as Plu and Theo); scenes marked "added" fill in
 // buttons the script left open, so no button is a dead end.
 // Line: { s: "P"|"T", t: text, rx?: reactions, sticker? }. Choice: [label, SCENE_ID | "ACTION:name"].
-// Actions: contact, branding, pr, night, portfolio, services, exit, restart, back, resume.
+// Actions: contact, branding, pr, night, portfolio, services, ai, agents, contactai, contactagents, exit, restart, back, resume.
 // The section 08 pop-ups live in popups.js (they show on every page).
 (() => {
   const P = (t, x = {}) => ({ s: "P", t, ...x });
   const T = (t, x = {}) => ({ s: "T", t, ...x });
   const MAIN = [
+    ["Automate my business", "AI"],
     ["I need branding", "BRANDING"],
     ["PR & publicity", "PR"],
     ["Join Pluto World", "WORLD"],
@@ -33,10 +34,35 @@
       ],
       choices: MAIN
     },
-    // Back to the six starting choices
+    // Back to the starting choices
     MENU: {
       lines: [T("Okay, human. What else?"), P("Pick anything! Except leaving!", { rx: ["wiggle"] })],
       choices: MAIN
+    },
+
+    // Added: AI automation, agents and chatbots
+    AI: {
+      lines: [
+        P("THEO! They want ROBOTS!", { rx: ["wiggle"] }),
+        T("Not robots. Automation. Calm down.", { rx: ["sideEye"] }),
+        P("So the computer does the boring stuff?"),
+        T("Exactly. Copying, chasing, replying. All the stuff you hate.", { rx: ["smug"] }),
+        P("I hate SO much stuff!", { rx: ["dramatic"] }),
+        T("We know. So, human. What's eating your team's time?")
+      ],
+      choices: [["Too much busy work", "AI_BUSY"], ["I want an AI chatbot", "AI_BOT"], ["Is AI actually useful?", "AI_DOUBT"]]
+    },
+    AI_BUSY: {
+      lines: [P("Busy work! Our favourite enemy!", { rx: ["wiggle"] }), T("Leads, follow-ups, invoices, reports. We hand those to AI."), P("And then everyone goes home early!", { rx: ["smile"] }), T("Or does the work that actually needs a human.", { rx: ["smug"] })],
+      choices: [["Automate my work", "ACTION:contactai"], ["What can you automate?", "ACTION:ai"], MORE]
+    },
+    AI_BOT: {
+      lines: [P("A chatbot! Can it talk like me?!", { rx: ["gasp"] }), T("Please, no. One of you is enough.", { rx: ["sideEye"] }), P("RUDE.", { rx: ["dramatic"] }), T("It answers from your own info, on your site or WhatsApp, and calls a human when it's stuck.")],
+      choices: [["Build my chatbot", "ACTION:contactagents"], ["See AI agents", "ACTION:agents"], MORE]
+    },
+    AI_DOUBT: {
+      lines: [T("Fair question. Some AI is just noise.", { rx: ["smug"] }), P("Not ours! Ours is useful noise!", { rx: ["wiggle"] }), T("We start with one boring task and show it working."), P("Then you decide if you want more!", { rx: ["smile"] })],
+      choices: [["Show me one task", "ACTION:contactai"], ["How it works", "ACTION:ai"], MORE]
     },
 
     // 02 I need branding

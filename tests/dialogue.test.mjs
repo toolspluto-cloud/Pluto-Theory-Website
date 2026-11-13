@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 const ctx = { window: {} };
 vm.runInNewContext(readFileSync(root + "conversation.js", "utf8"), ctx);
 const S = ctx.window.PT_SCENES;
-const ACTIONS = new Set(["portfolio", "services", "story", "contact", "branding", "pr", "night", "exit", "restart", "back", "resume"]);
+const ACTIONS = new Set(["portfolio", "services", "story", "contact", "branding", "pr", "night", "ai", "agents", "contactai", "contactagents", "exit", "restart", "back", "resume"]);
 const ROUTES = { portfolio: "work.html", services: "what-we-are.html", story: "what-we-are.html", contact: "contact.html", branding: "what-we-are.html#branding", pr: "what-we-are.html#pluto-times", night: "what-we-are.html#pluto-night" };
 let failed = 0;
 const check = (ok, msg) => { if (!ok) { failed++; console.error("FAIL:", msg); } };
@@ -17,7 +17,7 @@ check(new Set(ids).size === ids.length, "scene IDs are unique");
 check(S.OPENING, "OPENING scene exists");
 for (const [id, sc] of Object.entries(S)) {
   check(sc.lines.length > 0, `${id} has lines`);
-  check(sc.choices.length >= 1 && sc.choices.length <= 6, `${id} has 1 to 6 choices (has ${sc.choices.length})`);
+  check(sc.choices.length >= 1 && sc.choices.length <= 7, `${id} has 1 to 7 choices (has ${sc.choices.length})`);
   check(sc.lines.length <= 7, `${id} stays short (${sc.lines.length} lines)`);
   check(new Set(sc.choices.map((c) => c[0])).size === sc.choices.length, `${id} has no duplicate buttons`);
   sc.lines.forEach((l, k) => {
@@ -53,7 +53,7 @@ const canLeave = (start) => {
 };
 for (const id of ids) check(canLeave(id), `${id} can reach an exit or a real page`);
 // Opening matches the conversation script (section 01)
-check(S.OPENING.choices.map((c) => c[0]).join("|") === "I need branding|PR & publicity|Join Pluto World|Just your handsome faces|Just scrolling|I've got a story", "OPENING shows the six script choices in order");
+check(S.OPENING.choices.map((c) => c[0]).join("|") === "Automate my business|I need branding|PR & publicity|Join Pluto World|Just your handsome faces|Just scrolling|I've got a story", "OPENING shows AI first, then the six script choices in order");
 check(S.OPENING.lines.map((l) => l.s).join("") === "TPTPTPT", "OPENING alternates Theo / Plu as scripted");
 check(S.OPENING.lines[0].t === "Psst. Plu. Wake up. Someone's here.", "Theo whispers first");
 

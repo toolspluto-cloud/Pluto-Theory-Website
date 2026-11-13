@@ -59,7 +59,7 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
   results.scrollPopup = { popup: t, pass: /still here/.test(t || "") };
   await ctx.close();
 }
-// 4. Home chat: six opening choices, branch, link actions; closing the chat shows the goodbye pop-up
+// 4. Home chat: seven opening choices (AI first), branch, link actions; closing the chat shows the goodbye pop-up
 {
   const ctx = await browser.createBrowserContext();
   const page = await ctx.newPage();
@@ -83,7 +83,7 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
   const bye = await popText(page);
   results.chatFlow = {
     opening, links, lastLines, bye,
-    pass: opening.length === 6 && links.includes("Show you my logo -> /contact") && links.includes("See your branding work -> /what-we-are#branding")
+    pass: opening.length === 7 && opening[0] === "Automate my business" && links.includes("Show you my logo -> /contact") && links.includes("See your branding work -> /what-we-are#branding")
       && lastLines[0] === "Too late. I'm judging." && /say something wrong/.test(bye || "") && blocked
   };
   await ctx.close();
