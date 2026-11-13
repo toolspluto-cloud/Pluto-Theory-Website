@@ -2,7 +2,7 @@
 
 The blog writer takes the first unticked line. Reorder, add or delete freely. Format: `- [ ] Topic idea | target search`.
 
-- [ ] How to choose a branding agency in Hyderabad (questions to ask, red flags, what it should cost) | branding agency hyderabad
+- [x] How to choose a branding agency in Hyderabad (questions to ask, red flags, what it should cost) | branding agency hyderabad -> /blog/branding-agency-hyderabad
 - [ ] Logo design cost in India in 2026: freelancer vs studio vs agency | logo design cost india
 - [ ] Amazon and Flipkart product image rules, and how to shoot photos that pass | amazon product image requirements india
 - [ ] AI product photoshoot: how it works, what it costs, and where it falls short | ai product photoshoot
