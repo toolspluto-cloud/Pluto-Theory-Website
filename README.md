@@ -47,4 +47,15 @@ npm run serve      # just the site at http://localhost:8090, set up like Vercel
 
 `tools/ci.mjs` decides what passes. It covers: the chat script; every page on desktop and phone (errors, missing files, sideways scrolling, sections that never appear); the contact form; the voice clips; mute and the idea box; the pop-ups and home page chat; the chat voices. Other scripts in `tools/` are for measuring and screenshots rather than pass/fail: `check-voice-flow.mjs`, `check-voice-timing.mjs`, `check-cards.mjs`, `webkit-clap.mjs` (the high five in Safari's engine; needs `npx playwright install webkit` once). Each runs as `node <file> http://localhost:8090`. Reports and screenshots aren't committed.
 
+## SEO automation
+
+The **SEO** workflow (`.github/workflows/seo.yml`, about a minute) runs on every push:
+
+- **Sitemap:** `tools/build-sitemap.mjs` rebuilds `sitemap.xml` from the pages. Every page without `noindex` is listed, dated by its last commit. On `main` the bot commits the result, so you never edit the sitemap by hand. To keep a page out of Google (like `gallery` and `work` for now), give it `<meta name="robots" content="noindex, follow">`; removing that line puts it in the sitemap.
+- **Checks:** `tools/check-seo.mjs` fails the run on missing or badly sized titles and descriptions, wrong canonical addresses, pages without exactly one `<h1>`, broken structured data, images without alt text, broken internal links, a main page hidden by mistake, a robots.txt that blocks Google or AI crawlers, and blog posts missing from `llms.txt`.
+- **IndexNow:** after a push to `main`, `tools/indexnow.mjs` waits until Vercel serves the new pages, then tells Bing which pages changed (ChatGPT search and Copilot use Bing's index). The key is the 32-character `.txt` file in the site folder; don't delete it. To resend every page: Actions → SEO → Run workflow → tick "Send every page".
+- Google doesn't use IndexNow. It reads the sitemap, which must be submitted once in Google Search Console.
+
+Run the checks yourself in `tools/`: `npm run seo`. They're also part of `npm test`.
+
 The contact form sends to Web3Forms. Its access key in `contact.html` is meant to be public.

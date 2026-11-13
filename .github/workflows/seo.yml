@@ -1,0 +1,65 @@
+# SEO housekeeping, on every push (about 1 minute; the full website tests run separately in tests.yml):
+#   1. rebuild sitemap.xml from the pages (new pages added, hidden ones removed, last-changed dates)
+#   2. check titles, descriptions, canonicals, headings, structured data, links, robots.txt, llms.txt
+#   3. on main only: commit the updated sitemap, wait for Vercel to publish, then tell Bing through IndexNow
+#      which pages changed
+name: SEO
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Send every page to IndexNow, not just changed ones"
+        type: boolean
+        default: false
+
+concurrency:
+  group: seo-${{ github.ref }}
+  cancel-in-progress: false # never stop half way through committing the sitemap
+
+permissions:
+  contents: write # to commit sitemap.xml
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: tools
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history, for each page's last-changed date
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Rebuild the sitemap
+        run: node build-sitemap.mjs
+
+      - name: Check SEO
+        run: node check-seo.mjs
+
+      - name: Commit the updated sitemap
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        working-directory: .
+        run: |
+          if git diff --quiet -- sitemap.xml; then echo "sitemap.xml already up to date"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update sitemap.xml" -- sitemap.xml
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Tell Bing which pages changed (IndexNow)
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        working-directory: .
+        run: |
+          if [ "${{ inputs.all }}" = "true" ]; then node tools/indexnow.mjs --all; exit; fi
+          BEFORE="${{ github.event.before }}"
+          if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then echo "No earlier commit to compare with; skipping."; exit 0; fi
+          node tools/indexnow.mjs $(git diff --name-only "$BEFORE" "${{ github.sha }}")

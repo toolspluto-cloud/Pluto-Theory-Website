@@ -30,6 +30,10 @@ const failing = (results) => Object.entries(results).filter(([, r]) => !r.pass).
 
 // Each check returns a list of problems (empty = pass)
 const checks = [
+  ["SEO: titles, descriptions, canonicals, headings, structured data, links, sitemap, robots.txt, llms.txt", async () => {
+    const r = await run("node", ["check-seo.mjs"]);
+    return r.code === 0 ? [] : r.out.trim().split("\n");
+  }],
   ["Chat script (every scene, choice and link)", async () => {
     const r = await run("node", ["../tests/dialogue.test.mjs"]);
     return r.code === 0 ? [] : [r.out.trim()];

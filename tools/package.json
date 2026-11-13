@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "node serve.js .. 8090",
     "test": "node ci.mjs",
-    "test:quick": "node ci.mjs quick"
+    "test:quick": "node ci.mjs quick",
+    "seo": "node build-sitemap.mjs && node check-seo.mjs"
   },
   "type": "commonjs",
   "dependencies": {
