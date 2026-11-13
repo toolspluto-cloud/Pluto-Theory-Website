@@ -99,5 +99,16 @@ const llms = fs.readFileSync(path.join(SITE, "llms.txt"), "utf8");
 for (const m of llms.matchAll(/\((https:\/\/www\.plutotheory\.com[^)]*)\)/g)) if (!exists(m[1].slice(ORIGIN.length) || "/")) bad("llms.txt", `link to a page that doesn't exist: ${m[1]}`);
 for (const p of all) if (!isNoindex(p.html) && p.file !== "404.html" && p.file.startsWith("blog/") && !llms.includes(p.url)) bad("llms.txt", `blog post not listed, so AI tools may miss it: ${p.url}`);
 
+// Blog posts: listed on /blog, marked up as articles, FAQ schema matches the visible FAQ
+const blogIndex = fs.readFileSync(path.join(SITE, "blog.html"), "utf8");
+for (const p of all.filter((x) => x.file.startsWith("blog/") && !isNoindex(x.html))) {
+  const where = `/${p.file.replace(/\.html$/, "")}`;
+  if (!blogIndex.includes(`href="${where}"`)) bad("blog.html", `doesn't list ${where}`);
+  if (!/"@type":\s*"BlogPosting"/.test(p.html)) bad(where, "no BlogPosting structured data");
+  if (!/"datePublished":\s*"\d{4}-\d{2}-\d{2}"/.test(p.html)) bad(where, "no datePublished");
+  const shown = (p.html.match(/<details\b/g) || []).length, marked = (p.html.match(/"@type":\s*"Question"/g) || []).length;
+  if (shown !== marked) bad(where, `${shown} FAQ questions on the page but ${marked} in the FAQPage structured data`);
+}
+
 console.log(problems.length ? problems.join("\n") : `SEO checks passed (${all.length} pages, ${listed.length} in the sitemap)`);
 process.exit(problems.length ? 1 : 0);

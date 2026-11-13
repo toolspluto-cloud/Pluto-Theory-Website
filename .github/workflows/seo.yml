@@ -14,6 +14,10 @@ on:
         description: "Send every page to IndexNow, not just changed ones"
         type: boolean
         default: false
+      files:
+        description: "Changed files to send to IndexNow (used by the auto-publish workflow)"
+        type: string
+        default: ""
 
 concurrency:
   group: seo-${{ github.ref }}
@@ -60,6 +64,7 @@ jobs:
         working-directory: .
         run: |
           if [ "${{ inputs.all }}" = "true" ]; then node tools/indexnow.mjs --all; exit; fi
+          if [ -n "${{ inputs.files }}" ]; then node tools/indexnow.mjs ${{ inputs.files }}; exit; fi
           BEFORE="${{ github.event.before }}"
           if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then echo "No earlier commit to compare with; skipping."; exit 0; fi
           node tools/indexnow.mjs $(git diff --name-only "$BEFORE" "${{ github.sha }}")

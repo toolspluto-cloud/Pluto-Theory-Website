@@ -1,0 +1,53 @@
+# Publishes the SEO agent's pull requests (branches claude/seo-*) once every check has passed:
+# the website tests (tests.yml) and the SEO checks (seo.yml). Then it rebuilds the sitemap and tells Bing which pages
+# changed. A pull request that is a draft, labelled "hold", or has any failing check is left for a person.
+name: Publish SEO agent changes
+
+on:
+  workflow_run:
+    workflows: ["Website tests", "SEO"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  checks: read
+
+concurrency:
+  group: seo-autopublish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/seo-') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - name: Merge if everything passed
+        id: merge
+        run: |
+          PR=$(gh pr list --head "$BRANCH" --state open --json number,isDraft,labels,headRefOid \
+            --jq '.[] | select(.headRefOid == env.SHA) | select(.isDraft | not) | select([.labels[].name] | index("hold") | not) | .number')
+          if [ -z "$PR" ]; then echo "No ready pull request for $BRANCH at $SHA"; exit 0; fi
+          # Both workflows must have a successful run for this exact commit
+          for wf in tests.yml seo.yml; do
+            OK=$(gh run list --workflow "$wf" --commit "$SHA" --json conclusion --jq '[.[] | select(.conclusion == "success")] | length')
+            BAD=$(gh run list --workflow "$wf" --commit "$SHA" --json status,conclusion --jq '[.[] | select(.status != "completed" or (.conclusion != "success" and .conclusion != "skipped" and .conclusion != "cancelled"))] | length')
+            if [ "$OK" = "0" ] || [ "$BAD" != "0" ]; then echo "$wf not finished or not green for $SHA yet"; exit 0; fi
+          done
+          FILES=$(gh pr view "$PR" --json files --jq '[.files[].path] | join(" ")')
+          gh pr merge "$PR" --squash --delete-branch
+          echo "Merged #$PR: $FILES"
+          echo "files=$FILES" >> "$GITHUB_OUTPUT"
+
+      - name: Update the sitemap and tell Bing
+        if: steps.merge.outputs.files != ''
+        run: gh workflow run seo.yml --ref main -f files="${{ steps.merge.outputs.files }}"
