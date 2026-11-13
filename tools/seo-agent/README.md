@@ -1,6 +1,6 @@
 # The SEO agent
 
-Two scheduled Claude Code routines (claude.ai/code/routines) work on this site by themselves:
+Two scheduled tasks in the Claude desktop app (sidebar → Scheduled) work on this site by themselves. They run on the office computer, using the Claude plan, while the app is open; a run that was due while the app was closed happens on the next launch.
 
 | Routine | When | What | Instructions |
 |---|---|---|---|
@@ -17,4 +17,4 @@ Every run adds one line to [log.md](log.md), which is also how the next run know
 - Add, remove or reorder topics in `topics.md`. The writer always takes the first unticked one.
 - Change the rules in `BLOG.md` / `IMPROVE.md`. They are read fresh on every run.
 - To stop auto-publishing but keep the agent, label the pull requests yourself with `hold`, or delete `seo-autopublish.yml` (pull requests will then wait for you to merge).
-- To pause the routines: claude.ai/code/routines.
+- To pause or change them: Claude desktop app → Scheduled → "Pluto Theory: write an SEO blog post" / "Pluto Theory: improve the site's SEO".
