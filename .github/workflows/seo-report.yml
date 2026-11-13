@@ -1,0 +1,54 @@
+# Weekly SEO report, every Monday at 9:00 India time, posted as a GitHub issue labelled "seo-report"
+# (GitHub emails it to you). Last week's report is closed and used for the week-on-week changes.
+# Optional secrets (Settings → Secrets and variables → Actions); each adds a section when present:
+#   GSC_SERVICE_ACCOUNT  Google rankings, clicks and searches from Search Console
+#   ANTHROPIC_API_KEY    whether AI answers mention Pluto Theory (costs roughly $1 a week)
+# Run it now: Actions → Weekly SEO report → Run workflow.
+name: Weekly SEO report
+
+on:
+  schedule:
+    - cron: "30 3 * * 1" # 03:30 UTC Monday = 09:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install
+        working-directory: tools
+        run: npm ci
+
+      - name: Find last week's report
+        run: |
+          gh label create seo-report --color 7B61FF --description "Weekly SEO report" 2>/dev/null || true
+          gh issue list --label seo-report --state all --limit 1 --json number,body > last.json
+          node -e 'const l=require("./last.json");require("fs").writeFileSync("last.md",l[0]?.body||"");console.log(l[0]?"Comparing with #"+l[0].number:"First report")'
+
+      - name: Write the report
+        working-directory: tools
+        env:
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node weekly-report.mjs ../last.md > ../report.md
+
+      - name: Post it
+        run: |
+          LAST=$(node -e 'console.log(require("./last.json")[0]?.number||"")')
+          gh issue create --title "SEO report: $(date -u +%Y-%m-%d)" --label seo-report --body-file report.md
+          if [ -n "$LAST" ]; then gh issue close "$LAST" --comment "Replaced by this week's report." || true; fi

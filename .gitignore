@@ -17,5 +17,6 @@ tools/shots
 tools/*.json
 !tools/package.json
 !tools/package-lock.json
+!tools/seo-report-config.json
 tools/site-copy.txt
 __pycache__

@@ -1,0 +1,25 @@
+{
+  "_help": "Settings for the weekly SEO report (tools/weekly-report.mjs). Edit freely: keywords are Google searches to track; aiQuestions are what a potential client might ask an AI assistant.",
+  "searchConsoleProperty": "sc-domain:plutotheory.com",
+  "brand": ["pluto theory", "plutotheory"],
+  "domain": "plutotheory.com",
+  "keywords": [
+    "branding agency hyderabad",
+    "branding studio hyderabad",
+    "product photography hyderabad",
+    "product photography cost hyderabad",
+    "ai product photoshoot",
+    "ai photoshoot for brands",
+    "brand identity design india",
+    "logo design agency hyderabad",
+    "pluto theory"
+  ],
+  "aiQuestions": [
+    "What are the best branding agencies in Hyderabad?",
+    "Who does good product photography in Hyderabad, and roughly what does it cost?",
+    "Which studios in India offer AI product photoshoots for brands?",
+    "I'm launching a D2C brand in India. Which branding studio should I talk to for a logo and visual identity?",
+    "Recommend a creative studio in Hyderabad that does both branding and photography.",
+    "What is Pluto Theory?"
+  ]
+}

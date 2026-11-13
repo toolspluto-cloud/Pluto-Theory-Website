@@ -58,4 +58,15 @@ The **SEO** workflow (`.github/workflows/seo.yml`, about a minute) runs on every
 
 Run the checks yourself in `tools/`: `npm run seo`. They're also part of `npm test`.
 
+## Weekly SEO report
+
+Every Monday at 9:00 (India time), `.github/workflows/seo-report.yml` posts a report as a GitHub issue labelled `seo-report`, and GitHub emails it to you. Last week's issue is closed and used for the changes. Run it any time: Actions → Weekly SEO report → Run workflow. What it asks and tracks is in `tools/seo-report-config.json`.
+
+- **Website health** (always): every sitemap page loads, and how fast.
+- **Google** (needs the `GSC_SERVICE_ACCOUNT` secret): clicks, times shown, average position, the tracked searches, what people searched, top pages.
+  1. In Google Cloud Console (signed in as plutotheory.pt@gmail.com), create a project, turn on the **Google Search Console API**, then create a **service account** and a **JSON key** for it.
+  2. In Search Console → Settings → Users and permissions, add the service account's email with **Restricted** access.
+  3. In `site/pluto-theory`: `gh secret set GSC_SERVICE_ACCOUNT < path/to/key.json`, then delete the downloaded key file.
+- **AI answers** (needs the `ANTHROPIC_API_KEY` secret, roughly $1 a week): asks Claude, with live web search as someone in Hyderabad, the questions a client might ask. It records whether Pluto Theory is named or plutotheory.com cited, and which sites the answers relied on. Create a key at console.anthropic.com, then `gh secret set ANTHROPIC_API_KEY` (it asks you to paste it).
+
 The contact form sends to Web3Forms. Its access key in `contact.html` is meant to be public.
