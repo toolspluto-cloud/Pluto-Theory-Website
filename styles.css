@@ -1332,3 +1332,10 @@ body.is-leaving .curtain i { animation: none; transform: scaleY(1); transform-or
 body.lightbox-open { overflow: hidden; }
 @media (max-width: 560px) { .lightbox-prev, .lightbox-next { top: auto; bottom: 18px; transform: none; } .lightbox-img { max-height: 72vh; } }
 .gallery-empty[hidden] { display: none; }
+
+/* Six service cards (AI added): three across on wide screens, in two rows */
+@media (min-width: 1061px) {
+  .pillars { grid-template-columns: repeat(3, 1fr); }
+  .pillar:nth-child(3n) { border-right: 0; }
+  .pillar:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+}

@@ -1,17 +1,20 @@
 # Pluto Theory
 
-> Branding and photography studio in Hyderabad, India. In-person photoshoots in Hyderabad and AI photoshoots for brands anywhere in the world. Also PR, community nights, product building and production.
+> AI and creative studio based in Hyderabad, India, working with businesses across India and worldwide. AI automation, AI agents and chatbots, branding, photography and AI photoshoots. Also PR, community nights, product building and production.
 
 - Location: Hyderabad, Telangana, India
 - Contact: plutotheory.pt@gmail.com or https://www.plutotheory.com/contact
 - Tagline: Weird ideas. Serious results.
+- Pricing: quoted per project after a short brief; no fixed packages.
 
 ## Services
 
+- [AI automation](https://www.plutotheory.com/ai-automation): AI-powered workflows for repetitive business work: lead capture and follow-up, CRM updates, WhatsApp and email replies, document and data entry, reports. Built on the client's existing tools, with a person in the loop where mistakes matter.
+- [AI agents and chatbots](https://www.plutotheory.com/ai-agents): assistants for websites, WhatsApp, Instagram and internal teams that answer from the client's own information, qualify leads, book meetings and hand over to a person.
 - [Branding](https://www.plutotheory.com/branding): logo and visual identity, naming, brand voice, guidelines, brand characters, refresh or rebuild.
 - [Photography in Hyderabad](https://www.plutotheory.com/photography): product, brand and campaign, portrait, lifestyle and event photoshoots.
 - [AI photoshoots](https://www.plutotheory.com/ai-photoshoot): on-brand product and campaign images made with AI and retouched by people, delivered remotely worldwide.
-- [Everything we do](https://www.plutotheory.com/what-we-are): branding, Pluto Night (community), Pluto Times (PR), Tuto (product) and production.
+- [Everything we do](https://www.plutotheory.com/what-we-are): AI automation, branding, Pluto Night (community), Pluto Times (PR), Tuto (product) and production.
 
 ## Guides
 

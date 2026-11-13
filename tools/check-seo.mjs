@@ -9,7 +9,7 @@ import path from "node:path";
 import { SITE, ORIGIN, pages, isNoindex, buildSitemap } from "./build-sitemap.mjs";
 
 // These must always be visible to search engines. (gallery and work stay hidden until they have real work.)
-const MUST_BE_FOUND = ["/", "/branding", "/photography", "/ai-photoshoot", "/what-we-are", "/contact", "/blog"];
+const MUST_BE_FOUND = ["/", "/ai-automation", "/ai-agents", "/branding", "/photography", "/ai-photoshoot", "/what-we-are", "/contact", "/blog"];
 // Search and AI crawlers that must not be blocked in robots.txt
 const CRAWLERS = ["Googlebot", "Bingbot", "OAI-SearchBot", "ChatGPT-User", "GPTBot", "PerplexityBot", "ClaudeBot", "Claude-SearchBot", "Google-Extended", "Applebot"];
 

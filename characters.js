@@ -400,6 +400,17 @@
           arms: { l: { d: ARMS.upL }, r: { d: "M40,-116 Q70,-132 88,-152", hand: "point" } }, props: { front: P.wrench(-66, -186, -20) } })}
         ${P.rocket(404, 150)}`
     }),
+    ai: () => ({ // AI automation: Plu wires it up at the laptop, Theo reports the job done
+      vb: "0 0 440 300",
+      svg: `${P.gear(46, 150, 0.7)}${P.gear(70, 182, 0.45)}
+        ${P.bubble("", 214, 8, 200, "Done. Automated.", C.green, [300, 62])}
+        ${P.cube(150, 284, 104, 64, "P")}
+        ${figure({ who: "P", x: 150, y: 284, legs: "sit", mood: "determined", look: [0, 8], marks: ["code"],
+          arms: { l: { d: "M-40,-116 Q-56,-86 -30,-72", front: true }, r: { d: "M40,-116 Q56,-86 30,-72", front: true } },
+          props: { back: "", front: `<g transform="translate(0 4)">${P.laptop}</g>` } })}
+        ${figure({ who: "T", x: 320, y: 284, legs: "stride", mood: "cool", look: [-10, -6], tilt: -4, marks: ["sparkles"],
+          arms: { l: { d: ARMS.upL, hand: "open" }, r: { d: ARMS.hipR } } })}`
+    }),
     production: () => ({
       vb: "0 0 440 300",
       svg: `${P.film}${P.softbox}

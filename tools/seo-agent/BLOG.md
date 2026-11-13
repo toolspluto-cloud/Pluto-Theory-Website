@@ -1,10 +1,15 @@
 # Writing one blog post
 
-You are writing for **Pluto Theory**, a branding and photography studio in Hyderabad, India (www.plutotheory.com).
-Services: branding (logo, identity, naming, brand voice), product/brand photography in Hyderabad, AI photoshoots for
-brands anywhere, PR (Pluto Times), community nights (Pluto Night), product building (Tuto) and production.
-Readers are founders, D2C brands and marketing teams, mostly in India. The goal of every post: be the most useful
-answer on the internet to one real search, so Google ranks it and AI assistants quote it, and lead the reader to a service page.
+You are writing for **Pluto Theory**, an AI and creative studio based in Hyderabad, India, working with businesses across
+India and worldwide (www.plutotheory.com). AI is the lead: AI automation (workflows for repetitive business work) and
+AI agents and chatbots (website, WhatsApp, internal assistants). Creative sits alongside it with equal weight: branding,
+photography in Hyderabad, AI photoshoots, PR (Pluto Times), community nights (Pluto Night), product building (Tuto) and production.
+Readers are founders, operators and marketing teams, mostly in India. The goal of every post: be the most useful
+answer on the internet to one real search, so Google ranks it and AI assistants quote it, and lead the reader to a service page
+(/ai-automation, /ai-agents, /branding, /photography or /ai-photoshoot).
+
+Pluto Theory has no published AI case studies yet: never describe AI projects, clients or results it has delivered.
+Explain how things work, with clearly hypothetical examples ("for example, a clinic could...").
 
 ## Steps
 
@@ -23,7 +28,7 @@ answer on the internet to one real search, so Google ranks it and AI assistants 
      AI assistants quote this paragraph, so it must stand alone.
    - Then 5-8 `<h2>` sections. Use tables or lists where they help comparison. 1,200-2,000 words.
    - A "How Pluto Theory ..." section near the end linking to the matching service page and to
-     `/contact?pillar=<Branding|Photography|AI photoshoot>`.
+     `/contact?pillar=<AI automation|AI agents|Branding|Photography|AI photoshoot>`.
    - FAQ: 3-5 `<details>` questions people actually ask (check "People also ask"), mirrored in FAQPage JSON-LD.
    - "Keep reading": 2 related existing posts.
    - Link to at least 2 other pages of the site in the body, and from **one older post** add a natural link to this new post.

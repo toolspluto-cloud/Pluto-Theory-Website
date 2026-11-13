@@ -3,10 +3,20 @@
 The blog writer takes the first unticked line. Reorder, add or delete freely. Format: `- [ ] Topic idea | target search`.
 
 - [x] How to choose a branding agency in Hyderabad (questions to ask, red flags, what it should cost) | branding agency hyderabad -> /blog/branding-agency-hyderabad
+- [ ] What an AI automation agency does, what it costs in India, and how to pick one | ai automation agency india
+- [ ] 15 business tasks you can automate with AI this month (with examples by department) | business tasks to automate with ai
 - [ ] Logo design cost in India in 2026: freelancer vs studio vs agency | logo design cost india
+- [ ] WhatsApp chatbots for business in India: how they work, Meta's rules and costs | whatsapp chatbot for business india
+- [ ] AI agent vs chatbot vs automation: which one does your business need? | ai agent vs chatbot
 - [ ] Amazon and Flipkart product image rules, and how to shoot photos that pass | amazon product image requirements india
+- [ ] n8n vs Make vs Zapier for businesses in India: an honest comparison | n8n vs make vs zapier
+- [ ] AI for small businesses in India: where to start without wasting money | ai for small business india
 - [ ] AI product photoshoot: how it works, what it costs, and where it falls short | ai product photoshoot
+- [ ] How to automate lead follow-up with AI (website, ads and WhatsApp) | automate lead follow up
+- [ ] Building an internal AI knowledge assistant for your team's documents and SOPs | ai knowledge base assistant
 - [ ] Brand guidelines: what goes in a brand book (with a checklist) | brand guidelines template
+- [ ] Data privacy for AI automation in India: what the DPDP Act means for your workflows | dpdp act ai automation
+- [ ] Automating invoices and data entry with AI: a practical guide | ai invoice automation
 - [ ] How to brief a product photographer (with a free brief template) | product photography brief
 - [ ] Naming a startup in India: how to check trademarks, domains and handles | how to name a startup india
 - [ ] Packaging design for D2C brands in India: what to get right before printing | packaging design d2c india

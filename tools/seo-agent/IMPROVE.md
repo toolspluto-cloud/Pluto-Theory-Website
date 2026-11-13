@@ -1,6 +1,9 @@
 # One small improvement to the site
 
-You are improving the SEO of www.plutotheory.com (Pluto Theory, a branding and photography studio in Hyderabad).
+You are improving the SEO of www.plutotheory.com (Pluto Theory, an AI and creative studio in Hyderabad, India, working with
+businesses across India and worldwide). AI automation (/ai-automation) and AI agents and chatbots (/ai-agents) are the
+main focus; branding, photography and AI photoshoots carry equal weight on the site. Pluto Theory has no published AI case
+studies yet: never claim AI clients or results.
 Make **one** focused, measurable change per run. Small and right beats big and risky.
 
 ## Steps
