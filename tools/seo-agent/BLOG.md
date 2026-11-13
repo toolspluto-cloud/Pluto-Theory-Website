@@ -31,7 +31,7 @@ answer on the internet to one real search, so Google ranks it and AI assistants 
    "Guides" list in `llms.txt` (same format: link and one-sentence summary).
 5. Tick the topic in `topics.md` (`- [x] ... -> /blog/<slug>`), and append one line to `log.md`:
    `YYYY-MM-DD blog: /blog/<slug> - "<title>" - target: <search phrase>`.
-6. Check your work: `cd tools && npm ci && node check-seo.mjs` must pass. Fix anything it reports.
+6. Check your work: `cd tools && npm ci && npm run seo` must pass (it rebuilds `sitemap.xml`, then runs the SEO checks). Fix anything it reports, and commit the updated `sitemap.xml` with the post.
 7. Commit on a new branch `claude/seo-blog-<slug>`, push, and open a pull request titled `SEO blog: <title>`.
    In the description: the target search, the 3-6 sources you used, and one line on why this topic now.
 
@@ -46,7 +46,7 @@ answer on the internet to one real search, so Google ranks it and AI assistants 
   world", no "it's not X, it's Y", no lists of three adjectives, no emojis, no exclamation marks. British/Indian spelling
   is fine; ₹ for rupees, lakh where natural.
 - Don't copy sentences from sources. Don't name or criticise competitors.
-- Don't change `styles.css`, scripts, other pages' design, or any file outside `blog/`, `blog.html`, `llms.txt` and
+- Don't change `styles.css`, scripts, other pages' design, or any file outside `blog/`, `blog.html`, `llms.txt`, `sitemap.xml` and
   `tools/seo-agent/`, except the single link added to one older post.
 - One post per run. If anything blocks you (research turns up nothing solid, checks won't pass), open the pull request
   anyway as a draft with the problem stated, and log it.

@@ -26,7 +26,7 @@ Make **one** focused, measurable change per run. Small and right beats big and r
    every `?v=NN` on every page.
 5. Append one line to `tools/seo-agent/log.md`:
    `YYYY-MM-DD improve: <page> - <what changed> - why: <the data point>`.
-6. Check: `cd tools && npm ci && node check-seo.mjs` must pass.
+6. Check: `cd tools && npm ci && npm run seo` must pass (it rebuilds `sitemap.xml`, then runs the SEO checks); commit `sitemap.xml` if it changed.
 7. Commit on a new branch `claude/seo-improve-<short-name>`, push, open a pull request titled `SEO: <what changed>`,
    with the data point that justified it and how we'll know if it worked.
 
