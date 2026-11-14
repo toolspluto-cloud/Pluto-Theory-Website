@@ -2,8 +2,8 @@
 const CTA = "/contact?pillar=AI%20agents";
 export default {
   slug: "ai-agents",
-  title: "AI Agents & Chatbots for Business | Pluto Theory",
-  description: "Pluto Theory builds AI agents and chatbots for websites, WhatsApp and internal teams. They answer from your own information, qualify leads and hand over to a person.",
+  title: "AI Agent & Chatbot Development in India | Pluto Theory",
+  description: "Pluto Theory builds AI agents and chatbots for businesses across India: website and WhatsApp chatbots that answer from your own information and hand over to a person.",
   crumb: "AI agents & chatbots",
   serviceName: "AI agents and chatbots",
   serviceType: "AI agent and chatbot development",
