@@ -1339,3 +1339,7 @@ body.lightbox-open { overflow: hidden; }
   .pillar:nth-child(3n) { border-right: 0; }
   .pillar:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
 }
+
+/* Aurora background (bg.js): one small canvas fixed behind every page, blurred into soft watercolour light */
+.pt-bg { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; display: block;
+  filter: blur(28px) saturate(1.1); transform: scale(1.08); }
