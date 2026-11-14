@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
   <link rel="preload" href="/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/styles.css?v=58">
+  <link rel="stylesheet" href="/styles.css?v=59">
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -126,6 +126,7 @@
         <a href="/branding">Branding</a>
         <a href="/photography">Photography</a>
         <a href="/gallery">Gallery</a>
+        <a href="/blog">Blog</a>
         <a href="/contact">Contact</a>
         <a class="btn btn--primary" href="/contact">Start a project</a>
       </nav>
@@ -263,43 +264,6 @@
       </div>
     </section>
 
-    <!-- The Chaos Console: Plu and Theo's website tour (engine in characters.js, script in conversation.js) -->
-    <section class="section visitor" id="hello" aria-labelledby="hello-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow reveal">Live from the planet</p><h2 class="reveal" id="hello-title">Someone’s here!</h2></div>
-          <p class="lab-sub reveal">Two best friends who accidentally became an interactive website. No forms, no sales pitch. Just vibes.</p>
-        </div>
-        <div class="stage reveal" role="region" aria-label="Plu and Theo chat">
-          <div class="stage-char is-P"><div class="pt-scene stage-face" data-scene="portraitP" data-mood="sleepy" title="Plu"></div><span class="stage-name">Plu</span></div>
-          <div class="stage-bar">
-              <div class="stage-title"><b>Plu + Theo · Two misfits. One mind.</b><span>An unnecessarily entertaining website tour.</span></div>
-              <div class="stage-ctrl">
-                <span class="stage-chaos" aria-live="polite">Chaos level: Mildly suspicious</span>
-                <button class="stage-voice" type="button" aria-pressed="false">Voices off 🔇</button>
-              </div>
-            </div>
-          <div class="stage-char is-T"><div class="pt-scene stage-face" data-scene="portraitT" data-mood="sleepy" title="Theo"></div><span class="stage-name">Theo</span></div>
-          <div class="stage-main">
-            <p class="stage-voice-note" hidden></p>
-            <div class="stage-log">
-              <div class="stage-chat" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation"></div>
-              <button class="stage-latest" type="button" hidden>Latest ↓</button>
-            </div>
-            <div class="stage-replies" role="group" aria-label="Your replies"></div>
-            <div class="stage-utils">
-              <button class="stage-skip" type="button" hidden>Get to the point (politely)</button>
-              <button class="u-back" type="button" disabled>Undo that life choice ↶</button>
-              <button class="u-restart" type="button">Rewind the nonsense ↻</button>
-              <button class="u-explore" type="button">Actually explore the website ↗</button>
-              <button class="u-close" type="button" aria-label="Close the chat">Escape the chaos ✕</button>
-            </div>
-          </div>
-          <p class="stage-sticker" role="status" hidden></p>
-        </div>
-        <button class="stage-reopen btn btn--primary" type="button" hidden>Continue the chaos 💬</button>
-      </div>
-    </section>
 
     <!-- Section 3 · Five pillars teaser -->
     <section class="section--tight">
@@ -430,6 +394,18 @@
       </div>
     </section>
 
+    <!-- Latest from the blog (the three newest posts; the SEO agent updates this with each new post) -->
+    <section class="section--tight latest-posts">
+      <div class="wrap">
+        <div class="section-head"><h2 class="reveal">Latest from the blog</h2><a class="btn btn--ghost reveal" href="/blog">All posts <span class="arrow">→</span></a></div>
+        <div class="related reveal">
+          <a href="/blog/branding-agency-hyderabad"><b>How to choose a branding agency in Hyderabad</b><span>Branding · 8 min read · 13 November 2026</span></a>
+          <a href="/blog/product-photography-cost-hyderabad"><b>How much does product photography cost in Hyderabad?</b><span>Photography · 7 min read · 1 November 2026</span></a>
+          <a href="/blog/ai-photoshoot-vs-real-photoshoot"><b>AI photoshoot vs real photoshoot: which one does your brand need?</b><span>AI photoshoots · 6 min read · 1 November 2026</span></a>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 5 · Closing CTA -->
     <section class="section band">
       <div class="orbit" aria-hidden="true"></div>
@@ -459,16 +435,13 @@
     </div>
   </footer>
 
-  <script src="/analytics.js?v=58" defer></script>
-
-  <script src="/conversation.js?v=58" defer></script>
-  <script src="/voices/manifest.js?v=58" defer></script>
-  <script src="/characters.js?v=58" defer></script>
-  <script src="/icons.js?v=58" defer></script>
-  <script src="/sound.js?v=58" defer></script>
-  <script src="/interactions.js?v=58" defer></script>
-  <script src="/bg.js?v=58" defer></script>
-  <script src="/main.js?v=58" defer></script>
-  <script src="/popups.js?v=58" defer></script>
+  <script src="/analytics.js?v=59" defer></script>
+  <script src="/characters.js?v=59" defer></script>
+  <script src="/icons.js?v=59" defer></script>
+  <script src="/sound.js?v=59" defer></script>
+  <script src="/interactions.js?v=59" defer></script>
+  <script src="/bg.js?v=59" defer></script>
+  <script src="/main.js?v=59" defer></script>
+  <script src="/popups.js?v=59" defer></script>
 </body>
 </html>

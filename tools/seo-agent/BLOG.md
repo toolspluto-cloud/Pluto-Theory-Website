@@ -32,7 +32,8 @@ Explain how things work, with clearly hypothetical examples ("for example, a cli
    - FAQ: 3-5 `<details>` questions people actually ask (check "People also ask"), mirrored in FAQPage JSON-LD.
    - "Keep reading": 2 related existing posts.
    - Link to at least 2 other pages of the site in the body, and from **one older post** add a natural link to this new post.
-4. Add the post to the top of the list in `blog.html` (same format: title, category, read time, date) and to the
+4. Add the post to the top of the list in `blog.html` (same format: title, category, read time, date), to the top of the
+   "Latest from the blog" section on the home page `index.html` (keep only the three newest there), and to the
    "Guides" list in `llms.txt` (same format: link and one-sentence summary).
 5. Tick the topic in `topics.md` (`- [x] ... -> /blog/<slug>`), and append one line to `log.md`:
    `YYYY-MM-DD blog: /blog/<slug> - "<title>" - target: <search phrase>`.
@@ -51,7 +52,7 @@ Explain how things work, with clearly hypothetical examples ("for example, a cli
   world", no "it's not X, it's Y", no lists of three adjectives, no emojis, no exclamation marks. British/Indian spelling
   is fine; ₹ for rupees, lakh where natural.
 - Don't copy sentences from sources. Don't name or criticise competitors.
-- Don't change `styles.css`, scripts, other pages' design, or any file outside `blog/`, `blog.html`, `llms.txt`, `sitemap.xml` and
+- Don't change `styles.css`, scripts, other pages' design, or any file outside `blog/`, `blog.html`, the home page's "Latest from the blog" section, `llms.txt`, `sitemap.xml` and
   `tools/seo-agent/`, except the single link added to one older post.
 - One post per run. If anything blocks you (research turns up nothing solid, checks won't pass), open the pull request
   anyway as a draft with the problem stated, and log it.

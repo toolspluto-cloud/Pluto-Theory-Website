@@ -6,43 +6,6 @@ const browser = await puppeteer.launch({ executablePath: process.env.CHROME_PATH
 const results = {};
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// 1. Site-wide mute silences the chat voices
-{
-  const page = await browser.newPage();
-  await page.setViewport({ width: 1366, height: 900 });
-  await page.goto(`${base}/index.html`, { waitUntil: "networkidle0" });
-  await page.evaluate(() => {
-    window.__plays = [];
-    const os = AudioBufferSourceNode.prototype.start; // voices play through Web Audio
-    AudioBufferSourceNode.prototype.start = function (...a) { window.__plays.push(1); return os.apply(this, a); };
-    document.querySelector(".stage").scrollIntoView({ block: "center" });
-  });
-  await page.mouse.click(5, 5); // a real click, so the browser allows sound
-  await page.click(".sound-toggle"); // mute everything
-  await page.evaluate(() => document.querySelector(".u-restart").click());
-  await wait(6000);
-  const muted = await page.evaluate(() => window.__plays.length);
-  await page.click(".sound-toggle"); // unmute
-  await page.evaluate(() => { window.__plays = []; document.querySelector(".u-restart").click(); });
-  await wait(6000);
-  const unmuted = await page.evaluate(() => window.__plays.length);
-  results.muteSilencesVoices = { playsWhileMuted: muted, playsAfterUnmute: unmuted, pass: muted === 0 && unmuted > 0 };
-
-  // 2. Close + reopen twice never resumes into the welcome-back scene
-  await page.evaluate(() => { document.querySelector(".u-restart").click(); });
-  await wait(1500);
-  const loop = await page.evaluate(async () => {
-    const w = (ms) => new Promise((r) => setTimeout(r, ms));
-    document.querySelector(".u-close").click(); await w(200);
-    document.querySelector(".stage-reopen").click(); await w(300);
-    document.querySelector(".u-close").click(); await w(200);
-    document.querySelector(".stage-reopen").click(); await w(200);
-    return JSON.parse(sessionStorage.getItem("pt-chaos-console")).resumeScene;
-  });
-  results.reopenNoLoop = { resumeScene: loop, pass: loop === "OPENING" };
-  await page.close();
-}
-
 // 3. Idea box punctuation
 {
   const page = await browser.newPage();

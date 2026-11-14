@@ -1,15 +1,14 @@
 // Pluto Theory: section 08 "random pop-ups" from the conversation script. Plu and Theo drop a few short
 // lines in a small card at the bottom-left of any page. They're text only (no voices), so they never talk
 // over someone reading. Limits: one per page, three per visit, a minute apart, each moment once per visit,
-// never while the chat is on screen, the menu is open or someone is typing in a form. Always dismissible.
+// never while the menu is open or someone is typing in a form. Always dismissible.
 (() => {
   const P = (t) => ({ s: "P", t }), T = (t) => ({ s: "T", t });
   const LINES = {
     scroll: [P("Theo! They're still here!"), T("Yes. That's how websites work."), P("Do you think they like us?"), T("They haven't blocked us yet.")],
     secondPage: [T("Psst. You're following us."), P("DON'T SAY THAT! They're exploring!"), T("Sure. Very casually. On our second page.")],
     idle: [P("Hello? Did we lose you?"), T("Maybe they're thinking."), P("About us?"), T("About closing this popup, probably.")],
-    returns: [P("YOU'RE BACK!"), T("Act normal. Don't make it awkward."), P("I MISSED YOU!"), T("And there goes normal.")],
-    close: [P("Wait! Did we say something wrong?"), T("Yes. Mostly you."), P("BYE, FRIEND!"), T("Close the window, Plu. Have some dignity.")]
+    returns: [P("YOU'RE BACK!"), T("Act normal. Don't make it awkward."), P("I MISSED YOU!"), T("And there goes normal.")]
   };
   const NAMES = { P: "Plu", T: "Theo" };
   const PER_VISIT = 3, GAP_MS = 60000;
@@ -20,7 +19,6 @@
 
   let box = null, timers = [], shownHere = false;
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
-  const onScreen = (el) => { const r = el.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight && r.height > 0; };
 
   function allowed(force) {
     if (box || document.hidden) return false;
@@ -30,8 +28,6 @@
     if (force) return true;
     if (shownHere || +(get(S, "pt-pop-count") || 0) >= PER_VISIT) return false;
     if (Date.now() - +(get(S, "pt-pop-last") || 0) < GAP_MS) return false;
-    const stage = document.querySelector(".stage");
-    if (stage && !stage.hidden && onScreen(stage)) return false; // the chat is already talking
     return true;
   }
 
@@ -81,7 +77,6 @@
     box.addEventListener("pointerleave", () => later(hide, 4000));
     return true;
   }
-  window.ptPopup = (kind) => show(kind, { force: true }); // used by the chat's close button
   addEventListener("keydown", (e) => { if (e.key === "Escape") hide(); });
 
   // ---- when they show ----

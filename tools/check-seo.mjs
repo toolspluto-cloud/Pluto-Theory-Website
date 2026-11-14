@@ -110,5 +110,15 @@ for (const p of all.filter((x) => x.file.startsWith("blog/") && !isNoindex(x.htm
   if (shown !== marked) bad(where, `${shown} FAQ questions on the page but ${marked} in the FAQPage structured data`);
 }
 
+// Home page "Latest from the blog" shows the three newest posts listed on /blog
+{
+  const home = fs.readFileSync(path.join(SITE, "index.html"), "utf8");
+  const sec = home.slice(home.indexOf('class="section--tight latest-posts"'));
+  const newest = [...blogIndex.matchAll(/<a href="(\/blog\/[^"]+)">/g)].map((m) => m[1]).slice(0, 3);
+  const shown = [...sec.slice(0, sec.indexOf("</section>")).matchAll(/<a href="(\/blog\/[^"]+)">/g)].map((m) => m[1]);
+  if (home.indexOf("latest-posts") < 0) bad("/", "no \"Latest from the blog\" section");
+  else if (newest.join() !== shown.join()) bad("/", `"Latest from the blog" should list ${newest.join(", ")} (the three newest posts on /blog), but lists ${shown.join(", ")}`);
+}
+
 console.log(problems.length ? problems.join("\n") : `SEO checks passed (${all.length} pages, ${listed.length} in the sitemap)`);
 process.exit(problems.length ? 1 : 0);

@@ -59,35 +59,6 @@ const popText = (page) => page.evaluate(() => document.querySelector(".pt-pop")?
   results.scrollPopup = { popup: t, pass: /still here/.test(t || "") };
   await ctx.close();
 }
-// 4. Home chat: seven opening choices (AI first), branch, link actions; closing the chat shows the goodbye pop-up
-{
-  const ctx = await browser.createBrowserContext();
-  const page = await ctx.newPage();
-  await page.setViewport({ width: 1366, height: 900 });
-  await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]); // no typing pauses, for speed
-  await page.evaluateOnNewDocument(() => localStorage.setItem("pt-voice", "off")); // flow only; voices are tested elsewhere
-  await page.goto(`${base}/`, { waitUntil: "networkidle0" });
-  await page.evaluate(() => document.querySelector(".stage").scrollIntoView({ block: "center" }));
-  await page.waitForSelector(".stage-replies .reply", { timeout: 20000 });
-  const opening = await page.$$eval(".stage-replies .reply", (b) => b.map((x) => x.textContent));
-  // no pop-up while the chat is on screen, even if a trigger fires
-  const blocked = await page.evaluate(() => { sessionStorage.removeItem("pt-pop-last"); return document.querySelector(".pt-pop") === null; });
-  await page.evaluate(() => [...document.querySelectorAll(".stage-replies .reply")].find((b) => b.textContent === "I need branding").click());
-  await page.waitForFunction(() => [...document.querySelectorAll(".stage-replies .reply")].some((b) => b.textContent === "Don't judge my logo"), { timeout: 20000 });
-  await page.evaluate(() => [...document.querySelectorAll(".stage-replies .reply")].find((b) => b.textContent === "Don't judge my logo").click());
-  await page.waitForFunction(() => [...document.querySelectorAll(".stage-replies .reply")].some((b) => b.textContent === "See your branding work"), { timeout: 20000 });
-  const links = await page.$$eval(".stage-replies a.reply", (a) => a.map((x) => `${x.textContent} -> ${x.getAttribute("href")}`));
-  const lastLines = await page.$$eval(".stage-msg p", (p) => p.slice(-4).map((x) => x.textContent.replace(/^(Plu|Theo): (Plu|Theo)/, "")));
-  await page.click(".u-close");
-  await wait(1500);
-  const bye = await popText(page);
-  results.chatFlow = {
-    opening, links, lastLines, bye,
-    pass: opening.length === 7 && opening[0] === "Automate my business" && links.includes("Show you my logo -> /contact") && links.includes("See your branding work -> /what-we-are#branding")
-      && lastLines[0] === "Too late. I'm judging." && /say something wrong/.test(bye || "") && blocked
-  };
-  await ctx.close();
-}
 await browser.close();
 console.log(JSON.stringify(results, null, 1));
 console.log(Object.values(results).every((r) => r.pass) ? "ALL PASS" : "SOME FAILED");

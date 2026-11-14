@@ -34,10 +34,6 @@ const checks = [
     const r = await run("node", ["check-seo.mjs"]);
     return r.code === 0 ? [] : r.out.trim().split("\n");
   }],
-  ["Chat script (every scene, choice and link)", async () => {
-    const r = await run("node", ["../tests/dialogue.test.mjs"]);
-    return r.code === 0 ? [] : [r.out.trim()];
-  }],
   ["Every page on desktop and phone (errors, broken files, sideways scrolling, hidden content)", async () => {
     const r = await run("node", ["check-site.mjs", base, "clean"]);
     return json(r.out).flatMap((p) => [
@@ -58,15 +54,8 @@ const checks = [
     if (!f.error) bad.push("no error message when sending fails");
     return bad;
   }],
-  ["Voice clips (every chat line has a clip that plays)", async () => {
-    const r = await run("node", ["check-clips.mjs", base]);
-    if (r.code !== 0) return [r.out.trim()];
-    return JSON.parse(fs.readFileSync(`${here}/clips.json`, "utf8")).filter((c) => c.error).map((c) => `${c.scene} ${c.who}: "${c.text}" (${c.id}.mp3): ${c.error}`);
-  }],
-  ["Mute, chat reopening, idea box, form checks, footer", async () => failing(json((await run("node", ["check-fixes.mjs", base])).out))],
-  ["Pop-ups and the home page chat", async () => failing(json((await run("node", ["check-popups.mjs", base])).out)), "slow"],
-  ["Chat voices: mute, scrolling away, missing clips, iPhone sound lock", async () => failing(json((await run("node", ["check-voice-edges.mjs", base])).out)), "slow"],
-  ["Chat stays silent until the visitor taps", async () => { const r = json((await run("node", ["check-before-tap.mjs", base])).out); return r.pass ? [] : [JSON.stringify(r)]; }, "slow"]
+  ["Idea box, form checks, footer", async () => failing(json((await run("node", ["check-fixes.mjs", base])).out))],
+  ["Pop-ups", async () => failing(json((await run("node", ["check-popups.mjs", base])).out)), "slow"],
 ];
 
 const server = spawn("node", ["serve.js", site, String(port)], { cwd: here });
