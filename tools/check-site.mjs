@@ -5,7 +5,7 @@ import puppeteer from "puppeteer-core";
 import fs from "node:fs";
 
 const base = process.argv[2] || "http://localhost:8090";
-const pages = process.argv[3] === "clean" ? ["", "ai-automation", "ai-agents", "what-we-are", "branding", "photography", "ai-photoshoot", "gallery", "blog", "work", "contact"] : ["index.html", "what-we-are.html", "work.html", "contact.html"];
+const pages = process.argv[3] === "clean" ? ["", "ai-automation", "ai-agents", "what-we-are", "branding", "photography", "ai-photoshoot", "gallery", "team", "blog", "work", "contact"] : ["index.html", "what-we-are.html", "work.html", "contact.html"];
 const sizes = { desktop: { width: 1366, height: 820 }, phone: { width: 375, height: 740, isMobile: true, hasTouch: true, deviceScaleFactor: 1 } };
 fs.mkdirSync("shots", { recursive: true });
 
