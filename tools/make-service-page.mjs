@@ -40,5 +40,7 @@ html = html.replace(m[0], `${m[1]}\n${JSON.stringify(data, null, 1)}\n  ${m[3]}`
 const faq = spec.faq.map(([q, a]) => `        <details class="reveal"><summary>${q}</summary><p>${a}</p></details>`).join("\n");
 const main = spec.mainHtml.replace("{{FAQ}}", faq);
 set(/<main id="main">[\s\S]*<\/main>/, `<main id="main">\n${main}\n  </main>`, "main");
+// Mark this page in the main menu (if it is in the menu)
+html = html.replace(/ aria-current="page"/g, "").replace(`<a href="/${spec.slug}">`, `<a href="/${spec.slug}" aria-current="page">`);
 fs.writeFileSync(path.join(SITE, `${spec.slug}.html`), html);
 console.log(`wrote ${spec.slug}.html (${spec.title.length}-char title, ${spec.description.length}-char description, ${spec.faq.length} FAQs)`);

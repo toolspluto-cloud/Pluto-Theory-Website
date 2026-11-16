@@ -2,8 +2,8 @@
 const CTA = "/contact?pillar=AI%20automation";
 export default {
   slug: "ai-automation",
-  title: "AI Automation Agency in India | Pluto Theory",
-  description: "Pluto Theory builds AI automations for businesses in India and worldwide: lead follow-ups, CRM updates, WhatsApp and email replies, reports and document work.",
+  title: "AI Automation Agency in Hyderabad | Pluto Theory",
+  description: "AI automation agency in Hyderabad: Pluto Theory automates lead follow-ups, CRM updates, WhatsApp and email replies and reports for teams in India and worldwide.",
   crumb: "AI automation",
   serviceName: "AI workflow automation",
   serviceType: "AI automation and business process automation",
@@ -18,7 +18,7 @@ export default {
       <div class="wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">AI automation</span></nav>
         <p class="eyebrow reveal" style="--accent: var(--green)">AI automation · India &amp; worldwide</p>
-        <h1 class="reveal" data-delay="1">AI automation that takes the busy work off your team.</h1>
+        <h1 class="reveal" data-delay="1">AI automation in Hyderabad that takes the busy work off your team.</h1>
         <p class="sub reveal" data-delay="2">We find the repetitive work in your business (leads, follow-ups, data entry, reports, documents) and build AI-powered workflows that do it for you, connected to the tools you already use.</p>
         <div class="ctas reveal" data-delay="3"><a class="btn btn--primary" href="${CTA}">Automate a workflow <span class="arrow">→</span></a><a class="btn btn--ghost" href="/ai-agents">Need an AI agent or chatbot?</a></div>
       </div>

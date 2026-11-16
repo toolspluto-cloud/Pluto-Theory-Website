@@ -2,8 +2,8 @@
 const CTA = "/contact?pillar=AI%20agents";
 export default {
   slug: "ai-agents",
-  title: "AI Agents & Chatbots for Business | Pluto Theory",
-  description: "Pluto Theory builds AI agents and chatbots for websites, WhatsApp and internal teams. They answer from your own information, qualify leads and hand over to a person.",
+  title: "AI Chatbot & AI Agent Development, Hyderabad | Pluto Theory",
+  description: "AI chatbot and AI agent development in Hyderabad: bots for websites, WhatsApp and teams that answer from your own data, qualify leads and hand over to a person.",
   crumb: "AI agents & chatbots",
   serviceName: "AI agents and chatbots",
   serviceType: "AI agent and chatbot development",
@@ -18,7 +18,7 @@ export default {
       <div class="wrap">
         <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">AI agents &amp; chatbots</span></nav>
         <p class="eyebrow reveal" style="--accent: var(--purple)">AI agents &amp; chatbots · India &amp; worldwide</p>
-        <h1 class="reveal" data-delay="1">AI agents and chatbots that know your business.</h1>
+        <h1 class="reveal" data-delay="1">AI agents and chatbots that know your business, built in Hyderabad.</h1>
         <p class="sub reveal" data-delay="2">Assistants for your website, WhatsApp and team that answer from your own information, qualify leads, book meetings and hand over to a person when they should.</p>
         <div class="ctas reveal" data-delay="3"><a class="btn btn--primary" href="${CTA}">Build an AI agent <span class="arrow">→</span></a><a class="btn btn--ghost" href="/ai-automation">Automate a workflow instead?</a></div>
       </div>
