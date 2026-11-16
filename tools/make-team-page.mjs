@@ -35,7 +35,7 @@ const data = JSON.parse(m[2]);
 data["@graph"] = [...data["@graph"].filter((n) => ["ProfessionalService", "WebSite"].includes(n["@type"])),
   { "@type": "AboutPage", "@id": `${url}#webpage`, url, name: team.title, description: team.description, isPartOf: { "@id": `${ORIGIN}/#website` },
     about: { "@id": `${ORIGIN}/#organization` }, inLanguage: "en", breadcrumb: { "@id": `${url}#breadcrumb` },
-    ...(real.length ? { mainEntity: real.map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role, worksFor: { "@id": `${ORIGIN}/#organization` },
+    ...(real.length ? { mainEntity: real.map((p) => ({ "@type": "Person", "@id": `${ORIGIN}/team#${p.name.toLowerCase().split(" ")[0]}`, url, name: p.name, jobTitle: p.role, worksFor: { "@id": `${ORIGIN}/#organization` },
       ...(p.photo ? { image: `${ORIGIN}/${p.photo}` } : {}), ...(p.linkedin ? { sameAs: [p.linkedin] } : {}) })) } : {}) },
   { "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`, itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` }, { "@type": "ListItem", position: 2, name: "Team", item: url }] }
