@@ -1,13 +1,2 @@
-# Only the website goes online; the voice-recording tools and tests stay on this computer.
-scripts
-tests
-tools
-.github
-
-# Full-size gallery photos stay here; only the web-sized copies in assets/gallery go online
-assets/gallery/originals
-
-# Notes for people working on the site, not visitors
+tools/
 README.md
-.gitignore
-.gitattributes
