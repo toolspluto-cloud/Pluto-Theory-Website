@@ -25,6 +25,7 @@
 
 ## Other pages
 
+- [Blog](https://www.plutotheory.com/blog): all guides on branding, photography and AI photoshoots.
 - [Team](https://www.plutotheory.com/team): Arjun and Swaroop (co-founders), Akshith (AI & Automations Lead), Sanjay (AI & Creative Lead).
 - [Contact](https://www.plutotheory.com/contact)
 - [Privacy policy](https://www.plutotheory.com/privacy)
