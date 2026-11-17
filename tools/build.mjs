@@ -265,24 +265,6 @@ const home = () => `
           ${[0, 1, 2].map((i) => `<div class="fan-card"><span class="st ${["st--done", "st--review", "st--review"][i]}">${["Approved", "Ready for review", "Ready for review"][i]}</span><span class="line"></span><span class="line m"></span><span class="line s"></span><span class="line"></span><span class="line m"></span><div class="fa"><span class="ok">Approve</span><span>Edit</span></div></div>`).join("")}
         </div>
       </div>
-      <div class="b-3" data-reveal>
-        <h3>Statuses <em>you can trust</em></h3>
-        <p>Plain language that reflects a real system state. If a connection fails, you see the issue and the next action.</p>
-        <ul class="status-list vis">
-          <li><span>Site check, every Monday</span><span class="st st--run">Running</span></li>
-          <li><span>Reply to a new enquiry</span><span class="st st--review">Ready for review</span></li>
-          <li><span>Weekly campaign report</span><span class="st st--done">Completed</span></li>
-          <li><span>Inbox connection expired</span><span class="st st--attn">Needs attention</span></li>
-        </ul>
-      </div>
-      <div class="b-3 dark-b" data-reveal style="--d:1">
-        <h3>Start <em>cautious</em></h3>
-        <p style="color:var(--muted-dark)">Every automation can start with every action waiting for your approval. Let simple ones run on their own when you trust them.</p>
-        <ul class="status-list vis" style="--line:rgba(255,255,255,.1)">
-          <li style="background:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line-dark)"><span>Drafts need my approval</span><span class="tog on"></span></li>
-          <li style="background:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line-dark)"><span>Notify me when something needs me</span><span class="tog on"></span></li>
-          <li style="background:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line-dark)"><span>Send simple replies automatically</span><span class="tog"></span></li>
-        </ul>
       </div>
     </div>
   </div>
