@@ -174,8 +174,14 @@ const home = () => `
       <p class="lede" data-reveal>The next post. The new enquiry. The campaign report. The customer you meant to follow up with. Pluto Theory gives recurring marketing work a process, so the next step has somewhere to go.</p>
     </div>
     <div class="mess-board" data-scrub aria-label="Scattered tasks become an organised queue" role="img">
-      ${[["Write this week's LinkedIn post", "st--review", "Ready for review", "-60px", "-30px", "-9deg"], ["Reply to the new website enquiry", "st--done", "Completed", "70px", "40px", "7deg"], ["Pull the campaign report", "st--run", "Running", "-40px", "70px", "-5deg"], ["Follow up with last month's leads", "st--review", "Ready for review", "80px", "-20px", "10deg"], ["Fix the slow services page", "st--run", "Running", "-70px", "10px", "6deg"]]
-        .map(([t, c, l, x, y, r], i) => `<div class="note" style="--i:${i};--sx:${x};--sy:${y};--sr:${r}"><span class="nbox">${I.check}</span><b>${t}</b><span class="st ${c}">${l}</span></div>`).join("")}
+      <div class="queue-head"><b>This week</b><span>2 need you · 2 running · 1 done</span></div>
+      ${[
+        ["Write this week's LinkedIn post", "LinkedIn content · drafted from your notes", "post", "purple", "review", "Ready for review", 100, "#FFF6D1", "-60px", "-30px", "-9deg"],
+        ["Reply to the new website enquiry", "Lead generation · owner assigned", "lead", "green", "done", "Completed", 100, "#F1E6FF", "70px", "40px", "7deg"],
+        ["Pull the campaign report", "Performance · gathering this week's data", "perf", "orange", "run", "Running", 62, "#E3F7E4", "-40px", "70px", "-5deg"],
+        ["Follow up with last month's leads", "CRM & follow-up · 6 messages drafted", "crm", "purple", "review", "Ready for review", 100, "#FFEBD6", "80px", "-20px", "10deg"],
+        ["Fix the slow services page", "SEO · 3 fixes prepared", "seo", "green", "run", "Running", 38, "#FFF6D1", "-70px", "10px", "6deg"]
+      ].map(([t, m, ic, col, st, l, pg, bg, x, y, r], i) => `<div class="note n--${col} is-${st}" style="--i:${i};--sx:${x};--sy:${y};--sr:${r};--pg:${pg}%;--sticky:${bg}"><span class="nico">${I[ic]}</span><span class="ntext"><b>${t}</b><small>${m}</small></span><span class="st st--${st}">${l}</span><span class="nbar"><i></i></span></div>`).join("")}
     </div>
   </div>
 </section>
