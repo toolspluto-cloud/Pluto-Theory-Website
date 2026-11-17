@@ -3,7 +3,7 @@
 The blog writer takes the first unticked line. Reorder, add or delete freely. Format: `- [ ] Topic idea | target search`.
 
 - [x] How to choose a branding agency in Hyderabad (questions to ask, red flags, what it should cost) | branding agency hyderabad -> /blog/branding-agency-hyderabad
-- [ ] What an AI automation agency does, what it costs in India, and how to pick one | ai automation agency india
+- [x] What an AI automation agency does, what it costs in India, and how to pick one | ai automation agency india -> /blog/ai-automation-agency-india
 - [ ] 15 business tasks you can automate with AI this month (with examples by department) | business tasks to automate with ai
 - [ ] Logo design cost in India in 2026: freelancer vs studio vs agency | logo design cost india
 - [ ] WhatsApp chatbots for business in India: how they work, Meta's rules and costs | whatsapp chatbot for business india
