@@ -1,5 +1,6 @@
 // Builds every page of the site into static HTML.   node tools/build.mjs
 import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
+import { convertBlog } from "./blog.mjs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { PRODUCTS, GOALS } from "./products.mjs";
@@ -775,4 +776,6 @@ for (const { file, html } of pages) {
 }
 // sitemap.xml is rebuilt by the SEO workflow (tools/build-sitemap.mjs); robots.txt and llms.txt are edited by hand
 // and by the SEO agent, so this script leaves them alone.
-console.log(`Built ${pages.length} pages.`);
+// The blog pages are written by hand (and by the SEO agent); give them the current header, footer and styles.
+const blog = convertBlog(ROOT);
+console.log(`Built ${pages.length} pages; blog: ${blog.files} pages checked, ${blog.changed} updated.`);

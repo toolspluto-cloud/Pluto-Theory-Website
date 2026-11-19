@@ -3,7 +3,7 @@ import { PRODUCTS } from "./products.mjs";
 
 export const SITE = "https://www.plutotheory.com";
 export const EMAIL = "plutotheory.pt@gmail.com";
-export const V = "7"; // bump to bust caches after CSS/JS changes
+export const V = "8"; // bump to bust caches after CSS/JS changes
 
 const s = (d, extra = "") => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${d}</svg>`;
 export const I = {
@@ -75,6 +75,7 @@ const nav = (path) => {
         <a href="/studio"${cur("/studio")}>Studio</a>
         <a href="/pricing"${cur("/pricing")}>Pricing</a>
         <a href="/demos"${cur("/demos")}>Demos</a>
+        <a href="/blog"${cur("/blog")}>Blog</a>
         <a href="/support"${cur("/support")}>Support</a>
       </nav>`;
 };
@@ -110,12 +111,29 @@ export function layout({ path, title, description, body, dark = true, schema = [
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/fonts/league-spartan-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/site.css?v=${V}">
-  <script src="/js/boot.js?v=${V}"></script>
+${HEAD_ASSETS}
   <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": ld })}</script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+${header(path, dark)}
+  <main id="main">
+${body}
+  </main>
+${footer()}
+${SCRIPTS}
+</body>
+</html>
+`;
+}
+
+// Shared pieces, also used by site-src/blog.mjs to give the hand-written blog pages the same header, footer and assets.
+export const HEAD_ASSETS = `  <link rel="stylesheet" href="/css/site.css?v=${V}">
+  <script src="/js/boot.js?v=${V}"></script>`;
+export const SCRIPTS = `  <script src="/js/characters.js?v=${V}" defer></script>
+  <script src="/js/site.js?v=${V}" defer></script>`;
+
+export function header(path, dark = true) {
+  return `  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header${dark ? " is-dark" : ""}">
     <div class="wrap">
       <a class="logo" href="/" aria-label="Pluto Theory home"><img src="/assets/logo.png" alt="Pluto Theory" width="554" height="176"></a>
@@ -125,19 +143,10 @@ export function layout({ path, title, description, body, dark = true, schema = [
         <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
       </div>
     </div>
-  </header>
-  <main id="main">
-${body}
-  </main>
-  ${footer()}
-  <script src="/js/characters.js?v=${V}" defer></script>
-  <script src="/js/site.js?v=${V}" defer></script>
-</body>
-</html>
-`;
+  </header>`;
 }
 
-function footer() {
+export function footer() {
   const autos = PRODUCTS.map((p) => `<a href="/automations/${p.slug}">${p.name}</a>`).join("");
   return `<footer class="site-footer" data-theme="dark">
     <div class="wrap">

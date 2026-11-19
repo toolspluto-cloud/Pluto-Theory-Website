@@ -31,9 +31,11 @@ Pluto Theory has no published case studies. Explain how things work, with clearl
 2. Research it on the web (search, then read the best 3-6 pages). Note facts, price ranges and sources with the month
    you checked them. Look at what the top results cover so this post covers more, more clearly.
 3. Write `blog/<slug>.html`. Copy the structure of `blog/ai-automation-agency-india.html` exactly: the same
-   `<head>` (title, description, canonical, og/twitter tags, icons, fonts, the current `styles.css?v=` number),
-   the same JSON-LD `@graph` (organization, website, WebPage, BreadcrumbList, BlogPosting with today's
-   `datePublished`/`dateModified`, FAQPage matching the on-page FAQ), the same header, nav, footer and scripts.
+   `<head>` (title, description, canonical, og/twitter tags, icons, fonts, stylesheet), the same JSON-LD `@graph`
+   (organization, website, WebPage, BreadcrumbList, BlogPosting with today's `datePublished`/`dateModified`, FAQPage
+   matching the on-page FAQ), and the same section classes (`phero blog-hero`, `wrap prose`, `wrap faq`, `related`).
+   The header, footer and stylesheet don't need to be exact: step 4's `node site-src/build.mjs` rewrites them on every
+   blog page to match the rest of the site.
    - Slug: short, lowercase, hyphens, contains the main search phrase.
    - `<title>`: 40-65 characters, main phrase first, ends with ` | Pluto Theory`. Description: 120-160 characters.
    - Exactly one `<h1>` (the question or promise). Breadcrumb section = the post's category.
@@ -52,7 +54,8 @@ Pluto Theory has no published case studies. Explain how things work, with clearl
      and `/work` are gone; the SEO check fails on links to them.
 4. Add the post to the top of the list in `blog.html` (same format: title, category, read time, date) and to the
    "Guides" list in `llms.txt` (same format: link and one-sentence summary). Then run `node site-src/build.mjs` from the
-   repository root: it refreshes the home page's "Latest from the blog" from `blog.html`. Don't edit `index.html` by hand.
+   repository root: it refreshes the home page's "Latest from the blog" from `blog.html` and gives every blog page the
+   site's current header, footer and design. Don't edit `index.html` by hand.
 5. Tick the topic in `topics.md` (`- [x] ... -> /blog/<slug>`), and append one line to `log.md`:
    `YYYY-MM-DD blog: /blog/<slug> - "<title>" - target: <search phrase>`.
 6. Check your work: `cd tools && npm ci && npm run seo` must pass (it rebuilds `sitemap.xml`, then runs the SEO checks).
@@ -74,7 +77,7 @@ Pluto Theory has no published case studies. Explain how things work, with clearl
   world", no "it's not X, it's Y", no lists of three adjectives, no emojis, no exclamation marks. British/Indian spelling
   is fine; ₹ for rupees, lakh where natural.
 - Don't copy sentences from sources. Don't name or criticise competitors.
-- Don't change `css/`, `js/`, `styles.css`, scripts, `site-src/`, other pages' design, or any file outside `blog/`,
+- Don't change `css/`, `js/`, scripts, `site-src/`, other pages' design, or any file outside `blog/`,
   `blog.html`, `index.html` (only through `node site-src/build.mjs`), `llms.txt`, `sitemap.xml` and
   `tools/seo-agent/`, except the single link added to one older post.
 - One post per run. If anything blocks you (research turns up nothing solid, checks won't pass), open the pull request
