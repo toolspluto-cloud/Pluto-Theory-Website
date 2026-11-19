@@ -9,3 +9,4 @@ One line per run, newest at the bottom.
 2026-11-17 blog: /blog/ai-automation-agency-india - "AI Automation Agency India: Cost and How to Pick | Pluto Theory" - target: ai automation agency india
 2026-11-19 blog: /blog/business-tasks-to-automate-with-ai - "Business Tasks to Automate with AI: 15 Examples | Pluto Theory" - target: business tasks to automate with ai
 2026-11-19 improve: /automations/crm - added FAQ "How can a small business automate lead follow-up?" (FAQPage schema via build) - why: tracked searches "automate lead follow up" and "crm automation for small business" have no impressions; no page answered them directly
+2026-11-19 improve: / - added home FAQ "What is AI marketing automation for a small business?" (quotable who/where/early-access answer, FAQPage schema via build) - why: tracked searches "ai marketing automation" and "marketing automation for small business india" have no impressions; home page had no direct answer
