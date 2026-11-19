@@ -355,6 +355,7 @@ function plans() {
 }
 
 const HOME_FAQ = [
+  ["What is AI marketing automation for a small business?", "It is software that runs a defined, recurring marketing job for you, such as SEO checks, lead follow-up, CRM updates or LinkedIn drafts, so the work no longer depends on someone remembering it. Pluto Theory is based in Hyderabad, India, and offers these automations on subscription to small businesses in India and worldwide. Every automation is in early access, and pricing is shared on a demo."],
   ["What does “Marketing in a click” actually mean?", "It describes the experience: choose an automation, connect what it needs, set your rules and activate it. It does not mean rankings, leads or sales appear instantly. It means the recurring work behind them stops depending on someone remembering it."],
   ["What is the 70/30 split?", "About 70% of what Pluto Theory does is AI automation: subscription products that run defined, recurring marketing jobs. The other 30% is hands-on studio work, like brand, shoots, PR outreach and bespoke builds, for the parts that need people."],
   ["Will anything happen without my approval?", "Only what you allow. You decide which actions run on their own and which wait for a review. Most teams start with everything waiting for approval."],
