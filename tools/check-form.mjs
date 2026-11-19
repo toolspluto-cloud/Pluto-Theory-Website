@@ -22,15 +22,15 @@ for (const mode of ["success", "failure"]) {
   await page.type("#f-name", "Test Person");
   await page.type("#f-email", "test@example.com");
   await page.type("#f-phone", "+91 98765 43210");
-  await page.click('label[for="p1"]'); // a second service, to test multiple choices
-  await page.click('label[for="p2"]');
+  await page.click('label[for="i-seo"]'); // two automations, to test multiple choices
+  await page.click('label[for="i-crm"]');
   await page.type("#f-msg", "Hello from the form test");
   await page.click('.form [type="submit"]');
   await new Promise((r) => setTimeout(r, 1500));
   const state = await page.evaluate(() => ({
-    sentShown: document.querySelector(".form").classList.contains("is-sent"),
-    error: document.querySelector(".form-error").hidden ? null : document.querySelector(".form-error").textContent,
-    emailLink: document.querySelector(".alt a")?.href
+    sentShown: !!document.querySelector(".form-msg.ok"),
+    error: document.querySelector(".form-msg.err")?.textContent || null,
+    emailLink: document.querySelector(".form-msg.err a")?.href
   }));
   out[mode] = { sent, ...state };
   await page.close();

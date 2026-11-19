@@ -42,20 +42,19 @@ const checks = [
       ...(p.hiddenReveals ? [`${p.size} /${p.page}: ${p.hiddenReveals} section(s) never faded in`] : [])
     ]);
   }],
-  ["Contact form (phone, several services, success and failure messages)", async () => {
+  ["Contact form (phone, several automations, success and failure messages)", async () => {
     const r = json((await run("node", ["check-form.mjs", base])).out);
     const s = r.success, f = r.failure, bad = [];
     if (!s.sent) bad.push("the form sent nothing to Web3Forms");
     else {
       if (s.sent.body.phone !== "+91 98765 43210") bad.push(`phone sent as ${JSON.stringify(s.sent.body.phone)}`);
-      if (!/,/.test(s.sent.body.services || "")) bad.push(`two services ticked but sent ${JSON.stringify(s.sent.body.services)}`);
+      if (!/,/.test(s.sent.body.interest || "")) bad.push(`two automations ticked but sent ${JSON.stringify(s.sent.body.interest)}`);
     }
     if (!s.sentShown) bad.push("no thank-you message after a successful send");
     if (!f.error) bad.push("no error message when sending fails");
     return bad;
   }],
-  ["Idea box, form checks, footer", async () => failing(json((await run("node", ["check-fixes.mjs", base])).out))],
-  ["Pop-ups", async () => failing(json((await run("node", ["check-popups.mjs", base])).out)), "slow"],
+  // The idea box (check-fixes.mjs) and the chat pop-ups (check-popups.mjs) belonged to the old home page, so they no longer run.
 ];
 
 const server = spawn("node", ["serve.js", site, String(port)], { cwd: here });

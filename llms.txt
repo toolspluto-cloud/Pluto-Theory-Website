@@ -1,20 +1,33 @@
 # Pluto Theory
 
-> AI and creative studio based in Hyderabad, India, working with businesses across India and worldwide. AI automation, AI agents and chatbots, branding, photography and AI photoshoots. Also PR, community nights, product building and production.
+> Marketing in a click. Pluto Theory builds AI marketing automations and offers them on subscription: SEO, lead generation, CRM and follow-up, LinkedIn and Instagram content, performance marketing, PR and websites. About 70% of the business is these automations; the other 30% is a studio team for brand, shoots, PR outreach and bespoke builds.
 
-- Location: Hyderabad, Telangana, India
+- Based in: Hyderabad, Telangana, India; works with businesses in India and worldwide
 - Contact: plutotheory.pt@gmail.com or https://www.plutotheory.com/contact
-- Tagline: Weird ideas. Serious results.
-- Pricing: quoted per project after a short brief; no fixed packages.
+- Tagline: Marketing in a click.
+- Availability: every automation is in early access; pricing is shared on a demo call. Advertising spend is never part of the subscription.
 
-## Services
+## Automations
 
-- [AI automation](https://www.plutotheory.com/ai-automation): AI-powered workflows for repetitive business work: lead capture and follow-up, CRM updates, WhatsApp and email replies, document and data entry, reports. Built on the client's existing tools, with a person in the loop where mistakes matter.
-- [AI agents and chatbots](https://www.plutotheory.com/ai-agents): assistants for websites, WhatsApp, Instagram and internal teams that answer from the client's own information, qualify leads, book meetings and hand over to a person.
-- [Branding](https://www.plutotheory.com/branding): logo and visual identity, naming, brand voice, guidelines, brand characters, refresh or rebuild.
-- [Photography in Hyderabad](https://www.plutotheory.com/photography): product, brand and campaign, portrait, lifestyle and event photoshoots.
-- [AI photoshoots](https://www.plutotheory.com/ai-photoshoot): on-brand product and campaign images made with AI and retouched by people, delivered remotely worldwide.
-- [Everything we do](https://www.plutotheory.com/what-we-are): AI automation, branding, Pluto Night (community), Pluto Times (PR), Tuto (product) and production.
+- [SEO automation](https://www.plutotheory.com/automations/seo): Keep site checks, improvement work and SEO reporting moving.
+- [Lead generation](https://www.plutotheory.com/automations/lead-generation): Capture and organise supported enquiries, then connect them to a clear next step.
+- [CRM & follow-up](https://www.plutotheory.com/automations/crm): Keep records, owners and follow-ups connected.
+- [LinkedIn content](https://www.plutotheory.com/automations/linkedin): Turn your expertise into a repeatable content process.
+- [Instagram content](https://www.plutotheory.com/automations/instagram): Bring assets, captions, reviews and scheduling together.
+- [Performance marketing](https://www.plutotheory.com/automations/performance-marketing): Bring campaign information, checks and next actions together.
+- [PR workflow](https://www.plutotheory.com/automations/pr): Find opportunities, prepare angles and track next steps.
+- [Websites & landing pages](https://www.plutotheory.com/automations/websites): Create and maintain useful pages, then connect their enquiries to the next step.
+- [All automations](https://www.plutotheory.com/automations)
+
+## How it works and pricing
+
+- [How it works](https://www.plutotheory.com/how-it-works): choose an automation, connect the tools it needs, set rules and approvals, then review the work.
+- [Pricing](https://www.plutotheory.com/pricing): one automation, connected bundles (for example lead generation with CRM follow-up) or studio support. Every plan states its included work, limits, setup, support and extra charges.
+- [Demos](https://www.plutotheory.com/demos): live walkthroughs, labelled as prototype, test, pilot or production.
+
+## Studio
+
+- [Studio](https://www.plutotheory.com/studio): brand and messaging, product and brand photography, AI photoshoots, PR strategy and outreach, bespoke websites.
 
 ## Guides
 
@@ -26,6 +39,8 @@
 
 ## Other pages
 
-- [Team](https://www.plutotheory.com/team): Arjun and Swaroop (co-founders), Akshith (AI & Automations Lead), Sanjay (AI & Creative Lead).
+- [About and team](https://www.plutotheory.com/about): Arjun and Swaroop (co-founders), Akshith (AI & Automations Lead), Sanjay (AI & Creative Lead).
+- [Blog](https://www.plutotheory.com/blog)
+- [Support](https://www.plutotheory.com/support)
 - [Contact](https://www.plutotheory.com/contact)
 - [Privacy policy](https://www.plutotheory.com/privacy)

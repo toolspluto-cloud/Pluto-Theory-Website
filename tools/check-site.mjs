@@ -5,7 +5,7 @@ import puppeteer from "puppeteer-core";
 import fs from "node:fs";
 
 const base = process.argv[2] || "http://localhost:8090";
-const pages = process.argv[3] === "clean" ? ["", "ai-automation", "ai-agents", "what-we-are", "branding", "photography", "ai-photoshoot", "gallery", "team", "blog", "work", "contact"] : ["index.html", "what-we-are.html", "work.html", "contact.html"];
+const pages = process.argv[3] === "clean" ? ["", "automations", "automations/seo", "automations/lead-generation", "automations/crm", "automations/linkedin", "automations/instagram", "automations/performance-marketing", "automations/pr", "automations/websites", "how-it-works", "pricing", "demos", "support", "studio", "about", "contact", "privacy", "blog", "blog/ai-automation-agency-india"] : ["index.html", "what-we-are.html", "work.html", "contact.html"];
 const sizes = { desktop: { width: 1366, height: 820 }, phone: { width: 375, height: 740, isMobile: true, hasTouch: true, deviceScaleFactor: 1 } };
 fs.mkdirSync("shots", { recursive: true });
 
@@ -25,7 +25,7 @@ for (const [size, vp] of Object.entries(sizes)) {
       for (let y = 0; y < document.body.scrollHeight; y += 250) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); }
       await new Promise((r) => setTimeout(r, 1500));
       // a section the quick scroll skipped past on a busy machine: go to it, as a visitor would, before judging
-      for (const el of document.querySelectorAll(".reveal:not(.is-visible)")) { el.scrollIntoView({ block: "center" }); await new Promise((r) => setTimeout(r, 400)); }
+      for (const el of document.querySelectorAll(".reveal:not(.is-visible), [data-reveal]:not(.is-in)")) { el.scrollIntoView({ block: "center" }); await new Promise((r) => setTimeout(r, 400)); }
       await new Promise((r) => setTimeout(r, 800));
     });
     const info = await page.evaluate(() => {
@@ -34,13 +34,13 @@ for (const [size, vp] of Object.entries(sizes)) {
       const small = [...document.querySelectorAll("a, button, input, label, summary")].filter((e) => { const r = e.getBoundingClientRect(); return r.width && r.height && (r.height < 24 || r.width < 24) && getComputedStyle(e).visibility !== "hidden"; }).length;
       return {
         pageWidth: document.documentElement.scrollWidth, viewport: innerWidth,
-        hiddenReveals: document.querySelectorAll(".reveal:not(.is-visible)").length,
+        hiddenReveals: document.querySelectorAll(".reveal:not(.is-visible), [data-reveal]:not(.is-in)").length,
         overflowing: wide, tinyTapTargets: small
       };
     });
     await page.evaluate(() => scrollTo(0, 0));
     await new Promise((r) => setTimeout(r, 400));
-    await page.screenshot({ path: `shots/${size}-${p.replace(".html", "") || "index"}.png`, fullPage: true });
+    await page.screenshot({ path: `shots/${size}-${p.replace(".html", "").replaceAll("/", "_") || "index"}.png`, fullPage: true });
     report.push({ size, page: p, ...info, errors });
     await page.close();
   }

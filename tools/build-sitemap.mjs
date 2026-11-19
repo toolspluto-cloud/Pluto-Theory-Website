@@ -14,7 +14,8 @@ export const ORIGIN = "https://www.plutotheory.com";
 // Every page of the website, as { file, url, html }
 export function pages() {
   const files = [...fs.readdirSync(SITE).filter((f) => f.endsWith(".html")),
-    ...fs.readdirSync(path.join(SITE, "blog")).filter((f) => f.endsWith(".html")).map((f) => `blog/${f}`)];
+    ...fs.readdirSync(path.join(SITE, "blog")).filter((f) => f.endsWith(".html")).map((f) => `blog/${f}`),
+    ...fs.readdirSync(path.join(SITE, "automations")).filter((f) => f.endsWith(".html")).map((f) => `automations/${f}`)];
   return files.map((file) => {
     const slug = file.replace(/\.html$/, "").replace(/(^|\/)index$/, "");
     return { file, url: `${ORIGIN}/${slug}`, html: fs.readFileSync(path.join(SITE, file), "utf8") };

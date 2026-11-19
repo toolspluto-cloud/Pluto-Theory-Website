@@ -1,6 +1,14 @@
 # Pluto-Theory-Website
 
-The website for [Pluto Theory](https://www.plutotheory.com), a branding and photography studio in Hyderabad.
+The website for [Pluto Theory](https://www.plutotheory.com): AI marketing automations on subscription, plus a studio for the work that needs people.
+
+## The pages (v3, launched November 2026)
+
+- The marketing pages (home, `automations/*`, how it works, pricing, demos, support, studio, about, contact, privacy, 404) are **generated**. Edit `site-src/products.mjs` (the eight automations, their copy and status) or `site-src/build.mjs` (page copy and layout), then run `node site-src/build.mjs` and commit the generated HTML too.
+- Their look and motion: `css/site.css`, `js/site.js`, `js/characters.js`, `js/boot.js`. Bump `V` in `site-src/lib.mjs` after changing CSS or JS so browsers fetch the new files.
+- The blog (`blog/`, `blog.html`) still uses the earlier design (`styles.css` and the root `*.js` files). The SEO agent keeps adding posts there; the home page's "Latest from the blog" is built from `blog.html`.
+- `sitemap.xml` is rebuilt by the SEO workflow; `llms.txt` and `robots.txt` are edited by hand and by the SEO agent.
+- Old addresses (`/branding`, `/ai-automation`, `/team`, ...) redirect to their closest new page (`vercel.json`).
 
 This repository is the source of truth for the site. Vercel is connected to it:
 
