@@ -76,6 +76,7 @@ export const PRODUCTS = [
     studio: "Need help writing your follow-up sequences or shaping your sales message? Our studio team can help.",
     preview: "crm",
     faqs: [
+      ["How can a small business automate lead follow-up?", "Pluto Theory's CRM & follow-up automation keeps each lead's record, owner and next action up to date, flags follow-ups that are overdue and drafts messages for your review. You decide which actions it may take and which need a person first. It is in early access, and pricing is shared on a demo."],
       ["Do I need to switch CRMs?", "Not necessarily. We work with supported CRMs or an agreed workspace. We confirm what fits your setup during the demo."],
       ["Will it message my customers without asking?", "Only within the rules you set. Most teams start with every message drafted for review, then allow simple ones to send automatically."],
       ["What happens when a lead doesn't fit the rules?", "It is flagged as needing attention, with the reason, so a person can decide."]
