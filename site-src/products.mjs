@@ -101,6 +101,7 @@ export const PRODUCTS = [
     studio: "Need a profile rewrite, a photoshoot or a sharper personal brand? That is studio work, and we can help.",
     preview: "linkedin",
     faqs: [
+      ["How can a founder automate LinkedIn content?", "Pluto Theory's LinkedIn content automation turns your expertise, notes and stories into topic ideas, post drafts in your voice, a content calendar and a review queue. Every post is approved by you before it is scheduled through supported routes. It does not send connection requests or messages. It is in early access, and pricing is shared on a demo."],
       ["Will it post as me without asking?", "No. Every post goes through your review queue first."],
       ["Does it send connection requests or messages?", "No. LinkedIn does not allow that kind of automation, and it is not part of this product."],
       ["How do the drafts sound like me?", "They start from your own notes, stories and opinions, and get better as you edit and approve them."]
