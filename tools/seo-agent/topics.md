@@ -11,7 +11,7 @@ come first; studio topics (brand, photography, PR by people) follow.
 ## Automation topics
 
 - [x] How to automate lead follow-up with AI (website, ads and WhatsApp) | automate lead follow up -> /blog/automate-lead-follow-up-with-ai
-- [ ] SEO automation: what you can safely automate, and what still needs a person | seo automation
+- [x] SEO automation: what you can safely automate, and what still needs a person | seo automation -> /blog/seo-automation-what-to-automate
 - [ ] Marketing automation for small businesses in India: where to start without wasting money | marketing automation for small business india
 - [ ] A simple CRM setup for a small sales team: stages, owners and follow-ups | crm for small business india
 - [ ] LinkedIn automation: what LinkedIn allows, and what gets accounts restricted | linkedin automation rules
