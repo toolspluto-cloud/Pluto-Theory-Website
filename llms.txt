@@ -31,6 +31,7 @@
 
 ## Guides
 
+- [SEO automation: what you can safely automate, and what still needs a person](https://www.plutotheory.com/blog/seo-automation-what-to-automate): Which SEO tasks to automate (crawls, indexing and schema checks, tracking, briefs, reports), which still need a person, what Google says about automation and AI content, and a simple weekly routine.
 - [How to automate lead follow-up with AI (website, ads and WhatsApp)](https://www.plutotheory.com/blog/automate-lead-follow-up-with-ai): How to capture, acknowledge, route and follow up website, ad and WhatsApp leads with AI, the rules to respect in India, where a person should stay, and a four-week setup plan.
 - [15 business tasks you can automate with AI this month](https://www.plutotheory.com/blog/business-tasks-to-automate-with-ai): Fifteen business tasks to automate with AI, sorted by sales, support, finance, marketing, HR and operations, with how each works, where a person should stay in the loop and a four-week plan to start.
 - [What an AI automation agency does, what it costs in India, and how to pick one](https://www.plutotheory.com/blog/ai-automation-agency-india): What AI automation agencies build, published build and running costs in India in 2026, the questions to ask before hiring one, red flags, and when to do it yourself.

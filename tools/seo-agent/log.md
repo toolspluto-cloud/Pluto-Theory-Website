@@ -12,3 +12,4 @@ One line per run, newest at the bottom.
 2026-11-19 improve: / - added home FAQ "What is AI marketing automation for a small business?" (quotable who/where/early-access answer, FAQPage schema via build) - why: tracked searches "ai marketing automation" and "marketing automation for small business india" have no impressions; home page had no direct answer
 2026-11-20 blog: /blog/automate-lead-follow-up-with-ai - "Automate Lead Follow-Up with AI: A Practical Guide | Pluto Theory" - target: automate lead follow up
 2026-11-20 improve: /automations/linkedin - added FAQ "How can a founder automate LinkedIn content?" (FAQPage schema via build) - why: tracked search "linkedin content automation" has no impressions; no page answered it directly
+2026-11-21 blog: /blog/seo-automation-what-to-automate - "SEO Automation: What to Automate and What Not To | Pluto Theory" - target: seo automation
