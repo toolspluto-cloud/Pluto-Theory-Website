@@ -28,6 +28,7 @@ export const PRODUCTS = [
     studio: "Need new pages written and designed by hand, or a site rebuild? Our studio team can help alongside the automation.",
     preview: "seo",
     faqs: [
+      ["What is SEO automation, and what can be automated?", "SEO automation turns the repeatable parts of SEO into a recurring process: site checks, keyword and topic research, page recommendations, content briefs and progress reports. Pluto Theory's SEO automation prepares this work for your review on a schedule. Strategy, accuracy checks and final approval stay with a person. It is in early access, and pricing is shared on a demo."],
       ["Will this get us to the first page of Google?", "No one can honestly promise that. The automation keeps useful SEO work happening every week and shows you what was done. We measure completed improvements alongside impressions, relevant clicks and enquiries."],
       ["Does it change my website on its own?", "Only where you allow it and your site connection supports it. By default, changes are prepared for your review first."],
       ["What does a report include?", "What was checked, what was improved, what is waiting for your review and how search visibility is moving, using the data you have connected."]
