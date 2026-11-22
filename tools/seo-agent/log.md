@@ -14,3 +14,4 @@ One line per run, newest at the bottom.
 2026-11-20 improve: /automations/linkedin - added FAQ "How can a founder automate LinkedIn content?" (FAQPage schema via build) - why: tracked search "linkedin content automation" has no impressions; no page answered it directly
 2026-11-21 blog: /blog/seo-automation-what-to-automate - "SEO Automation: What to Automate and What Not To | Pluto Theory" - target: seo automation
 2026-11-21 improve: /automations/seo - added FAQ "What is SEO automation, and what can be automated?" (FAQPage schema via build) - why: tracked search "seo automation" has no impressions; the automation page had no direct definition answer
+2026-11-22 blog: /blog/marketing-automation-small-business-india - "Marketing Automation for Small Business India | Pluto Theory" - target: marketing automation for small business india
