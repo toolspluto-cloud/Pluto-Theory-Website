@@ -558,6 +558,7 @@ page("pricing.html", {
   </div>
 </section>
 <section class="section--tight"><div class="wrap wrap--narrow"><div class="head head--center"><h2 class="h-md words" data-in>${words("Pricing questions")}</h2></div>${faq([
+  ["What is marketing automation on subscription?", "It means you subscribe to an automation that runs one recurring marketing job, such as SEO checks, lead follow-up, CRM updates or LinkedIn drafts, instead of hiring for it or buying a large software suite. Pluto Theory, based in Hyderabad, India, offers its AI marketing automations on subscription to businesses in India and worldwide. You start with one automation and add more later. Every automation is in early access, and each plan's included work, limits and price are shared on a demo."],
   ["Why isn't there a price on the page?", "The automations are in early access, and we would rather show you a real demo and a clear scope than publish a number before the plan is finalised. Published prices will appear here as each automation becomes generally available."],
   ["Is advertising spend included?", "No. Ad spend is always separate from the subscription, and paid directly to the ad platform."],
   ["Can I combine automations?", "Yes. Bundles exist where the connection adds value, such as lead generation with CRM follow-up. Each automation also works on its own."],
