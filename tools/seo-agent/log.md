@@ -16,3 +16,4 @@ One line per run, newest at the bottom.
 2026-11-21 improve: /automations/seo - added FAQ "What is SEO automation, and what can be automated?" (FAQPage schema via build) - why: tracked search "seo automation" has no impressions; the automation page had no direct definition answer
 2026-11-22 blog: /blog/marketing-automation-small-business-india - "Marketing Automation for Small Business India | Pluto Theory" - target: marketing automation for small business india
 2026-11-22 improve: /pricing - added FAQ "What is marketing automation on subscription?" (FAQPage schema via build) - why: tracked search "marketing automation subscription" has no impressions; no page answered it directly
+2026-11-23 blog: /blog/crm-for-small-business-india - "CRM for Small Business India: A Simple Setup | Pluto Theory" - target: crm for small business india
