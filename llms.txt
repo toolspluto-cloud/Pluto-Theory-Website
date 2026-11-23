@@ -31,6 +31,7 @@
 
 ## Guides
 
+- [A simple CRM setup for a small sales team: stages, owners and follow-ups](https://www.plutotheory.com/blog/crm-for-small-business-india): How to set up a simple CRM for a small sales team in India: pipeline stages, owners, follow-up rhythm, published tool prices as of November 2026 and where AI helps.
 - [Marketing automation for small businesses in India: where to start without wasting money](https://www.plutotheory.com/blog/marketing-automation-small-business-india): What to automate first as a small business in India, what you need before you start, indicative CRM, email and WhatsApp costs as of November 2026, the rules that apply, and a four-week plan.
 - [SEO automation: what you can safely automate, and what still needs a person](https://www.plutotheory.com/blog/seo-automation-what-to-automate): Which SEO tasks to automate (crawls, indexing and schema checks, tracking, briefs, reports), which still need a person, what Google says about automation and AI content, and a simple weekly routine.
 - [How to automate lead follow-up with AI (website, ads and WhatsApp)](https://www.plutotheory.com/blog/automate-lead-follow-up-with-ai): How to capture, acknowledge, route and follow up website, ad and WhatsApp leads with AI, the rules to respect in India, where a person should stay, and a four-week setup plan.
