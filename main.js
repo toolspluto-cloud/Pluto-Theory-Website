@@ -82,7 +82,7 @@
       if (idea && msg && !msg.value) msg.value = `My idea: ${idea}`;
     } catch (_) {}
 
-    // Messages are emailed through Web3Forms (web3forms.com) to plutotheory.pt@gmail.com. The access key in the
+    // Messages are emailed through Web3Forms (web3forms.com) to the inbox registered with the access key. The access key in the
     // form's data-access-key decides where they go; it's safe to be public (it can only send to that inbox).
     const errorEl = form.querySelector(".form-error");
     form.addEventListener("submit", async (e) => {
@@ -111,7 +111,7 @@
       } catch (_) {
         window.ptTrack?.("contact_form_error");
         form.classList.remove("is-sending");
-        errorEl.innerHTML = 'That didn’t send. Please try again, or email us at <a href="mailto:plutotheory.pt@gmail.com">plutotheory.pt@gmail.com</a>.';
+        errorEl.innerHTML = 'That didn’t send. Please try again, or email us at <a href="mailto:info@plutotheory.com">info@plutotheory.com</a>.';
         errorEl.hidden = false;
         return;
       }

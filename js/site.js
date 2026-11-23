@@ -251,7 +251,7 @@
         form.reset();
         msg.textContent = "Thanks! We'll reply within one working day."; msg.classList.add("ok");
       } catch {
-        msg.innerHTML = `That didn't send. Please email us at <a href="mailto:plutotheory.pt@gmail.com">plutotheory.pt@gmail.com</a>.`; msg.classList.add("err");
+        msg.innerHTML = `That didn't send. Please email us at <a href="mailto:info@plutotheory.com">info@plutotheory.com</a>.`; msg.classList.add("err");
       } finally { btn.disabled = false; btn.style.opacity = ""; }
     });
   }
