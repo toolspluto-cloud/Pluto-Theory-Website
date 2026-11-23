@@ -77,6 +77,7 @@ export const PRODUCTS = [
     studio: "Need help writing your follow-up sequences or shaping your sales message? Our studio team can help.",
     preview: "crm",
     faqs: [
+      ["What is CRM automation for a small business?", "CRM automation handles the repetitive upkeep of a CRM: recording new enquiries, keeping stage and owner current, flagging follow-ups that are overdue and drafting messages. Pluto Theory's CRM & follow-up automation does this for a small team using a supported CRM or an agreed workspace, with a person reviewing what you choose. It is in early access, and pricing is shared on a demo."],
       ["How can a small business automate lead follow-up?", "Pluto Theory's CRM & follow-up automation keeps each lead's record, owner and next action up to date, flags follow-ups that are overdue and drafts messages for your review. You decide which actions it may take and which need a person first. It is in early access, and pricing is shared on a demo."],
       ["Do I need to switch CRMs?", "Not necessarily. We work with supported CRMs or an agreed workspace. We confirm what fits your setup during the demo."],
       ["Will it message my customers without asking?", "Only within the rules you set. Most teams start with every message drafted for review, then allow simple ones to send automatically."],
