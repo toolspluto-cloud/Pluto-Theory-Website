@@ -3,7 +3,7 @@ import { PRODUCTS } from "./products.mjs";
 
 export const SITE = "https://www.plutotheory.com";
 export const EMAIL = "info@plutotheory.com";
-export const V = "9"; // bump to bust caches after CSS/JS changes
+export const V = "10"; // bump to bust caches after CSS/JS changes
 
 const s = (d, extra = "") => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${d}</svg>`;
 export const I = {
@@ -19,6 +19,7 @@ export const I = {
   insta: s('<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/>'),
   perf: s('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'),
   pr: s('<path d="M3 10v4a1 1 0 0 0 1 1h3l6 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M17 8.5a5 5 0 0 1 0 7M19.5 6a8.5 8.5 0 0 1 0 12"/>'),
+  wa: s('<path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.6 18.6z"/><path d="M9.2 9.4c.2 1.9 2.4 4.3 5 5 .5.1 1.4-.5 1.6-1l-1.5-.9-.8.6c-.9-.4-1.8-1.3-2.2-2.2l.6-.8-.9-1.5c-.5.2-1.1.6-.9 1z"/>'),
   web: s('<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/>'),
   shield: s('<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/>'),
   plug: s('<path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0zM12 16v5"/>'),

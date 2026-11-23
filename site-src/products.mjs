@@ -85,6 +85,31 @@ export const PRODUCTS = [
     ]
   },
   {
+    slug: "whatsapp", name: "WhatsApp automation", icon: "wa", goal: "connected", status: "early", feature: false,
+    short: "Replies, reminders and follow-ups on WhatsApp.",
+    card: "Answer enquiries, send reminders and follow up on WhatsApp, with a person ready to step in.",
+    title: "WhatsApp Business Automation | Pluto Theory",
+    desc: "WhatsApp automation on subscription: answer common questions, capture enquiries, send approved reminders and follow-ups, and hand chats to your team when needed.",
+    eyebrow: "WhatsApp automation",
+    h1: "Keep your WhatsApp conversations moving.",
+    sub: "Answer the questions you get every day, capture enquiries into your lead process and send timely follow-ups, with your team stepping in whenever a chat needs a person.",
+    problem: "Customers message you on WhatsApp because it is fast. Then the same five questions arrive all day, replies wait until someone is free, and the enquiry never makes it into your CRM.",
+    connect: ["A WhatsApp Business Platform number (we help you set it up through Meta)", "Your common questions and approved answers", "The message templates you want for reminders and follow-ups", "Where enquiries should go next: your CRM or our lead automation"],
+    receive: ["Instant replies to common questions, in your tone", "Enquiries captured with the details you need", "Reminders and follow-ups sent at the right time", "A clear hand-off to your team, with the conversation so far"],
+    control: ["What the automation may answer, and what always goes to a person", "Which reminders and follow-ups are sent, and when", "Office hours and when a person takes over"],
+    steps: [["Answer", "Common questions get an instant, accurate reply from the answers you approved."], ["Capture", "Enquiries are recorded with the details you need and passed to your lead or CRM process."], ["Follow up", "Approved reminders and follow-ups go out on time; anything unusual goes to your team."]],
+    includes: ["Replies to frequent questions from your approved answers", "Enquiry capture into your lead or CRM process", "Appointment, payment or order reminders using approved templates", "Follow-ups to people who have opted in", "Hand-off to a person, with the chat history", "A simple view of conversations that need attention"],
+    limits: ["Uses Meta's official WhatsApp Business Platform. Business-initiated messages need the customer's opt-in and a template Meta has approved.", "Meta charges for some messages. Those charges are separate from the subscription and shown before you start.", "No bulk messages to people who haven't opted in, and no unofficial WhatsApp tools that put your number at risk."],
+    studio: "Need the messages written in your brand's voice, or a campaign to grow your WhatsApp audience? Our studio team can help.",
+    preview: "whatsapp",
+    faqs: [
+      ["Do I need the WhatsApp Business app or the API?", "This uses Meta's WhatsApp Business Platform (the API), which is what allows automated replies and reminders at scale. We help you set it up and confirm the right option for your number on the demo."],
+      ["Can it send messages to all my customers at once?", "Only to people who have opted in to hear from you, using templates Meta has approved. That protects your number and keeps messages welcome."],
+      ["What happens when the automation can't answer?", "The chat goes to a person on your team, with the conversation so far, so the customer doesn't have to repeat themselves."],
+      ["Are WhatsApp's own charges included?", "No. Meta charges for some message types. Those charges are separate from the subscription, and we show you how they work before you start."]
+    ]
+  },
+  {
     slug: "linkedin", name: "LinkedIn content", icon: "post", goal: "discover", status: "early", feature: false,
     short: "Your expertise, as a repeatable content process.",
     card: "Turn your expertise into a repeatable content process.",

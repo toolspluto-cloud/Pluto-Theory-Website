@@ -153,7 +153,7 @@ const home = () => `
     </div>
     ${heroWorkspace}
   </div>
-  <div class="wrap strip" style="margin-top:clamp(56px,7vw,96px)" data-reveal="fade"><div class="strip-in"><p>Eight automations for the marketing work that keeps coming back.</p>${productTicker()}</div></div>
+  <div class="wrap strip" style="margin-top:clamp(56px,7vw,96px)" data-reveal="fade"><div class="strip-in"><p>${countWord(PRODUCTS.length)} automations for the marketing work that keeps coming back.</p>${productTicker()}</div></div>
 </section>
 
 <section class="section">
@@ -305,11 +305,14 @@ function latestPosts() {
   return [...blog.matchAll(/<a href="\/blog\/[^"]+"><b>.*?<\/a>/g)].map((m) => m[0]).slice(0, 3);
 }
 
+// "Nine", "Ten"... for headlines, so adding a product never leaves a stale count in the copy.
+const countWord = (n) => ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"][n] || String(n);
+
 function catalogue() {
   const tabs = [["all", "All"], ...Object.entries(GOALS)];
   return `<div data-tabs>
     <div class="tabs" role="tablist" aria-label="Filter automations by goal">${tabs.map(([k, t], i) => `<button class="tab" role="tab" type="button" data-filter="${k}" aria-selected="${i === 0}">${t}</button>`).join("")}<span class="tab-glider" aria-hidden="true"></span></div>
-    <div class="cards">${PRODUCTS.map(productCard).join("")}</div>
+    <div class="cards cards--3">${PRODUCTS.map(productCard).join("")}</div>
   </div>`;
 }
 
@@ -426,7 +429,15 @@ const PREVIEWS = {
     <div class="callout"><b>Why it fits</b>Matches a verified fact you provided. Nothing is sent without approval.</div>`,
   web: () => `<h3>Landing page <span class="st st--review">Preview ready</span></h3>
     <div class="page-prev"><div class="pp-bar"><i></i><i></i><i></i></div><div class="pp-body"><span class="pp-h"></span><span class="pp-l"></span><span class="pp-l" style="width:80%"></span><span class="pp-l" style="width:60%"></span><span class="pp-btn"></span></div></div>
-    <div class="q-row"><div><b>Enquiry form connected</b><small>Sends to lead generation → CRM</small></div><span class="st st--done">Connected</span></div>`
+    <div class="q-row"><div><b>Enquiry form connected</b><small>Sends to lead generation → CRM</small></div><span class="st st--done">Connected</span></div>`,
+  whatsapp: () => `<h3>WhatsApp chat <span class="st st--run">Replying</span></h3>
+    <div class="wa-chat">
+      <p class="wa-msg in">Hi, do you deliver to Gachibowli? And what are your timings?</p>
+      <p class="wa-msg out">Yes, we deliver to Gachibowli. We're open 10am to 8pm, Monday to Saturday. Would you like to place an order or ask about something else?<small>Answered from your approved replies</small></p>
+      <p class="wa-msg in">I'd like a quote for a bulk order.</p>
+    </div>
+    <div class="q-row"><div><b>Enquiry captured</b><small>Bulk order · sent to CRM & follow-up</small></div><span class="st st--done">Captured</span></div>
+    <div class="q-row"><div><b>Handed to your team</b><small>Quotes always go to a person</small></div><span class="st st--review">Needs a person</span></div>`
 };
 
 for (const p of PRODUCTS) {
@@ -589,7 +600,7 @@ page("demos.html", {
 <section class="section--tight">
   <div class="wrap">
     <div class="head"><span class="eyebrow" data-reveal>Pick a demo</span><h2 class="h-md words" data-in>${words("Which automation would you like to see?")}</h2></div>
-    <div class="cards">${PRODUCTS.map((p, i) => `<a class="card" href="/contact?interest=${p.slug}" data-reveal style="--d:${i % 4}"><div class="card-top"><span class="card-ico">${I[p.icon]}</span>${statusPill(p.status)}</div><h3>${p.name}</h3><p>${p.card}</p><span class="link">Request this demo ${I.ne}</span></a>`).join("")}</div>
+    <div class="cards cards--3">${PRODUCTS.map((p, i) => `<a class="card" href="/contact?interest=${p.slug}" data-reveal style="--d:${i % 4}"><div class="card-top"><span class="card-ico">${I[p.icon]}</span>${statusPill(p.status)}</div><h3>${p.name}</h3><p>${p.card}</p><span class="link">Request this demo ${I.ne}</span></a>`).join("")}</div>
   </div>
 </section>
 ${cta()}`

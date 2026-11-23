@@ -1,7 +1,7 @@
 # One small improvement to the site
 
 You are improving the SEO of www.plutotheory.com. Pluto Theory sells **AI marketing automations on subscription**
-("Marketing in a click."): SEO, lead generation, CRM & follow-up, LinkedIn and Instagram content, performance marketing,
+("Marketing in a click."): SEO, lead generation, CRM & follow-up, WhatsApp, LinkedIn and Instagram content, performance marketing,
 PR workflow, and websites & landing pages. About 70% of the business is these automations; the other 30% is a studio
 team (brand, photography and AI photoshoots, PR outreach, bespoke builds). Based in Hyderabad, India, working with
 businesses in India and worldwide. Every automation is in early access: never claim one is live, proven or has clients,

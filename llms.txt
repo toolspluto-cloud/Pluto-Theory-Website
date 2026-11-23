@@ -1,6 +1,6 @@
 # Pluto Theory
 
-> Marketing in a click. Pluto Theory builds AI marketing automations and offers them on subscription: SEO, lead generation, CRM and follow-up, LinkedIn and Instagram content, performance marketing, PR and websites. About 70% of the business is these automations; the other 30% is a studio team for brand, shoots, PR outreach and bespoke builds.
+> Marketing in a click. Pluto Theory builds AI marketing automations and offers them on subscription: SEO, lead generation, CRM and follow-up, WhatsApp, LinkedIn and Instagram content, performance marketing, PR and websites. About 70% of the business is these automations; the other 30% is a studio team for brand, shoots, PR outreach and bespoke builds.
 
 - Based in: Hyderabad, Telangana, India; works with businesses in India and worldwide
 - Contact: info@plutotheory.com or https://www.plutotheory.com/contact
@@ -12,6 +12,7 @@
 - [SEO automation](https://www.plutotheory.com/automations/seo): Keep site checks, improvement work and SEO reporting moving.
 - [Lead generation](https://www.plutotheory.com/automations/lead-generation): Capture and organise supported enquiries, then connect them to a clear next step.
 - [CRM & follow-up](https://www.plutotheory.com/automations/crm): Keep records, owners and follow-ups connected.
+- [WhatsApp automation](https://www.plutotheory.com/automations/whatsapp): Answer enquiries, send reminders and follow up on WhatsApp, with a person ready to step in.
 - [LinkedIn content](https://www.plutotheory.com/automations/linkedin): Turn your expertise into a repeatable content process.
 - [Instagram content](https://www.plutotheory.com/automations/instagram): Bring assets, captions, reviews and scheduling together.
 - [Performance marketing](https://www.plutotheory.com/automations/performance-marketing): Bring campaign information, checks and next actions together.

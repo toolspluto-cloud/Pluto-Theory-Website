@@ -8,6 +8,7 @@ The automations (each has its own page):
 - `/automations/seo`: SEO automation (recurring site checks, improvement queue, content briefs, reports)
 - `/automations/lead-generation`: lead generation (capturing and routing inbound enquiries; not scraped lists)
 - `/automations/crm`: CRM & follow-up (records, owners, stages, follow-ups drafted for review)
+- `/automations/whatsapp`: WhatsApp automation (replies to common questions, enquiry capture, approved reminders and follow-ups on Meta's WhatsApp Business Platform, hand-off to a person)
 - `/automations/linkedin`: LinkedIn content (drafts from the client's expertise, review queue, supported scheduling)
 - `/automations/instagram`: Instagram content (content queue, captions, review, supported publishing)
 - `/automations/performance-marketing`: performance marketing (campaign reporting, checks, suggested changes)
@@ -44,7 +45,7 @@ Pluto Theory has no published case studies. Explain how things work, with clearl
    - Then 5-8 `<h2>` sections. Use tables or lists where they help comparison. 1,200-2,000 words.
    - A "How Pluto Theory can help" section near the end linking to the matching automation page (or `/studio` for
      brand, photography or hands-on PR topics) and to `/contact?interest=<slug>`, where `<slug>` is one of
-     `seo`, `lead-generation`, `crm`, `linkedin`, `instagram`, `performance-marketing`, `pr`, `websites`, `studio`.
+     `seo`, `lead-generation`, `crm`, `whatsapp`, `linkedin`, `instagram`, `performance-marketing`, `pr`, `websites`, `studio`.
      Say plainly that the automations are in early access and shown on a demo.
    - FAQ: 3-5 `<details>` questions people actually ask (check "People also ask"), mirrored in FAQPage JSON-LD.
    - "Keep reading": 2 related existing posts.
