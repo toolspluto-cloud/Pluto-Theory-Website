@@ -18,3 +18,4 @@ One line per run, newest at the bottom.
 2026-11-22 improve: /pricing - added FAQ "What is marketing automation on subscription?" (FAQPage schema via build) - why: tracked search "marketing automation subscription" has no impressions; no page answered it directly
 2026-11-23 blog: /blog/crm-for-small-business-india - "CRM for Small Business India: A Simple Setup | Pluto Theory" - target: crm for small business india
 2026-11-23 improve: /automations/crm - added FAQ "What is CRM automation for a small business?" (FAQPage schema via build) - why: tracked search "crm automation for small business" has no impressions; the page had no direct definition answer
+2026-11-24 blog: /blog/linkedin-automation-rules - "LinkedIn Automation Rules: What Is Allowed | Pluto Theory" - target: linkedin automation rules
