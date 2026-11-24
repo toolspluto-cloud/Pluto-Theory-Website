@@ -19,3 +19,4 @@ One line per run, newest at the bottom.
 2026-11-23 blog: /blog/crm-for-small-business-india - "CRM for Small Business India: A Simple Setup | Pluto Theory" - target: crm for small business india
 2026-11-23 improve: /automations/crm - added FAQ "What is CRM automation for a small business?" (FAQPage schema via build) - why: tracked search "crm automation for small business" has no impressions; the page had no direct definition answer
 2026-11-24 blog: /blog/linkedin-automation-rules - "LinkedIn Automation Rules: What Is Allowed | Pluto Theory" - target: linkedin automation rules
+2026-11-24 improve: / - added home FAQ "Is Pluto Theory an AI automation agency in India?" with a link to /blog/ai-automation-agency-india (FAQPage schema via build) - why: searches "ai automation agency" (68.6, 10 shown) and "ai automation agency india" (48.5) show us, but the home page and site pages never answered it and nothing linked to the blog post (64.5, 13 shown)
