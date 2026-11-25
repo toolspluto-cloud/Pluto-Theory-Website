@@ -669,6 +669,7 @@ page("studio.html", {
 <section class="section--tight"><div class="wrap wrap--narrow"><div class="head head--center"><h2 class="h-md words" data-in>${words("Studio questions")}</h2></div>${faq([
   ["Do I need an automation to work with the studio?", "No. Studio work can stand on its own. It works best when it feeds an automation, like messaging that shapes your follow-ups or photos that fill your content queue."],
   ["How is studio work priced?", "Each project has its own scope, fee and owner, quoted before we start."],
+  ["Does the studio do branding and product photography in Hyderabad?", `Yes. Pluto Theory is based in Hyderabad, India, and its studio team handles brand and messaging and product and brand photography, including AI photoshoots for teams anywhere in the world. Each project is scoped and quoted before we start. If you are choosing a partner, read <a class="link" href="/blog/branding-agency-hyderabad">how to choose a branding agency in Hyderabad</a> and <a class="link" href="/blog/product-photography-cost-hyderabad">what product photography costs in Hyderabad</a>.`],
   ["Is human PR different from the PR workflow automation?", "Yes. The automation finds opportunities and prepares pitches. The studio adds people who run the outreach and build relationships."]
 ])}</div></section>
 ${cta({ h: "Tell us what you're making.", p: "Brand, shoots, PR or a bespoke build. We'll reply with next steps and a clear scope.", primary: ["/contact?interest=studio", "Talk to the studio"], secondary: ["/automations", "Explore automations"] })}`
