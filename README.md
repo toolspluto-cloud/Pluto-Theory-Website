@@ -66,6 +66,13 @@ The **SEO** workflow (`.github/workflows/seo.yml`, about a minute) runs on every
 
 Run the checks yourself in `tools/`: `npm run seo`. They're also part of `npm test`.
 
+## Performance monitoring
+
+- `js/track.js` adds the campaign, landing page and referring site to each enquiry email. Google Analytics uses the Measurement ID in `GA4_ID` there (leave it empty to turn Analytics off; bump `V` in `site-src/lib.mjs` after any change). Visitors are asked first; nothing loads from Google unless they accept.
+- Successful enquiries are counted as `generate_lead` (only after Web3Forms confirms). The `lead_id` in the email matches the one in Analytics. Never send personal details in an event.
+- `.github/workflows/perf-monitor.yml` checks the live site every day at 8:30 India time (`tools/perf-monitor.mjs`) and opens a `perf-monitor` issue if something that loses enquiries breaks.
+- `node tools/check-tracking.mjs http://localhost:8090` tests all of this without sending anything.
+
 ## Weekly SEO report
 
 Every Monday at 9:00 (India time), `.github/workflows/seo-report.yml` posts a report as a GitHub issue labelled `seo-report`, and GitHub emails it to you. Last week's issue is closed and used for the changes. Run it any time: Actions → Weekly SEO report → Run workflow. What it asks and tracks is in `tools/seo-report-config.json`.

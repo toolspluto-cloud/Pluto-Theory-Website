@@ -1,0 +1,53 @@
+# Daily marketing health check, 8:30 India time. Looks at the public site only: no form is sent, nothing is changed.
+# If something that loses enquiries breaks, it opens one GitHub issue labelled "perf-monitor" (GitHub emails you),
+# and closes it once everything passes again.
+# Run it now: Actions → Marketing health check → Run workflow.
+name: Marketing health check
+
+on:
+  schedule:
+    - cron: "0 3 * * *" # 03:00 UTC = 08:30 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: perf-monitor
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check the site
+        id: check
+        run: |
+          set +e
+          node tools/perf-monitor.mjs > report.md
+          CODE=$?
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+          if [ ! -s report.md ]; then echo "The check itself failed to run."; exit 1; fi
+          echo "problems=$CODE" >> "$GITHUB_OUTPUT"
+
+      - name: Open, update or close the issue
+        env:
+          PROBLEMS: ${{ steps.check.outputs.problems }}
+        run: |
+          gh label create perf-monitor --color D93F0B --description "Marketing health check" 2>/dev/null || true
+          OPEN=$(gh issue list --label perf-monitor --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ "$PROBLEMS" != "0" ]; then
+            if [ -n "$OPEN" ]; then gh issue edit "$OPEN" --body-file report.md
+            else gh issue create --title "Marketing health check: something needs fixing" --label perf-monitor --body-file report.md; fi
+          elif [ -n "$OPEN" ]; then
+            gh issue close "$OPEN" --comment "All checks pass again."
+          fi
