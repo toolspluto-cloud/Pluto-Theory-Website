@@ -3,7 +3,7 @@ import { PRODUCTS } from "./products.mjs";
 
 export const SITE = "https://www.plutotheory.com";
 export const EMAIL = "info@plutotheory.com";
-export const V = "10"; // bump to bust caches after CSS/JS changes
+export const V = "11"; // bump to bust caches after CSS/JS changes
 
 const s = (d, extra = "") => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${d}</svg>`;
 export const I = {
@@ -130,7 +130,8 @@ ${SCRIPTS}
 // Shared pieces, also used by site-src/blog.mjs to give the hand-written blog pages the same header, footer and assets.
 export const HEAD_ASSETS = `  <link rel="stylesheet" href="/css/site.css?v=${V}">
   <script src="/js/boot.js?v=${V}"></script>`;
-export const SCRIPTS = `  <script src="/js/characters.js?v=${V}" defer></script>
+export const SCRIPTS = `  <script src="/js/track.js?v=${V}" defer></script>
+  <script src="/js/characters.js?v=${V}" defer></script>
   <script src="/js/site.js?v=${V}" defer></script>`;
 
 export function header(path, dark = true) {

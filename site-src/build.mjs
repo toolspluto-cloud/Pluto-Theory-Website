@@ -728,7 +728,8 @@ page("contact.html", {
         <div class="box" data-reveal style="--d:1"><b>What happens next</b><p>A short reply, then a live demo of the automation you picked. You'll see what it does today and get the plan details.</p></div>
       </div>
     </div>
-    <form class="form" data-reveal="scale" data-form data-endpoint="https://api.web3forms.com/submit" data-access-key="0d2ea896-e674-4afb-9865-555f53d9f1e5" novalidate>
+    <form class="form" data-reveal="scale" data-form method="post" action="https://api.web3forms.com/submit" data-endpoint="https://api.web3forms.com/submit" data-access-key="0d2ea896-e674-4afb-9865-555f53d9f1e5">
+      <input type="hidden" name="access_key" value="0d2ea896-e674-4afb-9865-555f53d9f1e5">
       <input type="hidden" name="subject" value="New enquiry from plutotheory.com">
       <div class="row2">
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
@@ -758,16 +759,17 @@ page("privacy.html", {
 <section class="phero"><div class="wrap prose">
   <nav class="crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span>Privacy</span></nav>
   <h1 class="h-lg">Privacy policy</h1>
-  <p class="lede" style="margin-top:20px">What this website collects, why, and what you can ask us to do with it. Last updated 16 November 2026.</p>
+  <p class="lede" style="margin-top:20px">What this website collects, why, and what you can ask us to do with it. Last updated 25 November 2026.</p>
   <h2>Who we are</h2><p>This website is run by Pluto Theory, which builds AI marketing automations offered on subscription and runs a studio for brand, production, PR and bespoke work. You can reach us at <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
   <h2>What we collect</h2><ul>
     <li><b>Contact form.</b> When you send the form we receive your name, email, phone (if given), company, the automations or services you picked and your message. The form is delivered to our inbox by Web3Forms (web3forms.com).</li>
     <li><b>Emails you send us.</b> We keep them so we can reply and follow up.</li>
-    <li><b>Visit statistics.</b> The site can use analytics tools to understand how people use it, such as which pages are visited. When they are switched on, these tools may set cookies and collect information about your device and visit.</li>
+    <li><b>Where your enquiry came from.</b> While you browse, your browser tab remembers the first page you opened, the site that sent you and any campaign or ad click labels in the link (such as utm_source or gclid). We receive this only if you send the contact form, with a reference number for the enquiry. It is cleared when you close the tab.</li>
+    <li><b>Visit statistics.</b> The site can use Google Analytics to understand how people use it, such as which pages are visited. When it is switched on, we ask you first. If you accept, it may set cookies and collect information about your device and visit. If you decline, it does not load.</li>
     <li><b>Hosting.</b> The site is hosted on Vercel, which keeps standard technical logs to run and protect the service.</li></ul>
   <h2>How we use it</h2><p>We use what you send us to reply to your enquiry, arrange demos and work with you. We use visit statistics to improve the website. We do not sell your information.</p>
   <h2>How long we keep it</h2><p>We keep enquiries for as long as we need them to talk to you and, if we work together, for our records.</p>
-  <h2>Your choices</h2><p>You can ask us to show, correct or delete the information you have sent us by emailing <a href="mailto:${EMAIL}">${EMAIL}</a>. You can block or delete cookies in your browser settings.</p>
+  <h2>Your choices</h2><p>You can ask us to show, correct or delete the information you have sent us by emailing <a href="mailto:${EMAIL}">${EMAIL}</a>. You can block or delete cookies in your browser settings. <button type="button" class="link" data-consent-reset hidden>Change my analytics choice</button></p>
   <h2>Automation customers</h2><p>If you subscribe to an automation, how it uses your connected accounts and data is set out in your plan terms.</p>
   <h2>Changes</h2><p>If this policy changes, we will update this page and the date at the top.</p>
 </div></section>`

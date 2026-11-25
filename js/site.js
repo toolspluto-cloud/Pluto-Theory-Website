@@ -234,6 +234,9 @@
   if (form) {
     const want = new URLSearchParams(location.search).get("interest");
     if (want) want.split(",").forEach((slug) => { const box = $(`[data-slug="${slug}"]`, form); if (box) box.checked = true; });
+    const requested = (want || "").replace(/[^a-z0-9,-]/gi, "").slice(0, 80); // which button brought them here
+    const track = (name, details) => window.ptTrack && window.ptTrack(name, details);
+    form.noValidate = true; // our own messages below; the browser's checks stay on if this script doesn't run
     const msg = $(".form-msg", form);
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -243,14 +246,19 @@
       const data = Object.fromEntries(new FormData(form));
       data.interest = $$("[name=interest]:checked", form).map((c) => c.value).join(", ") || "Not specified";
       data.access_key = form.dataset.accessKey;
+      if (requested) data.requested = requested;
+      data.lead_id = crypto.randomUUID ? crypto.randomUUID() : "10000000-1000-4000-8000-100000000000".replace(/[018]/g, (c) => (+c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (+c / 4)))).toString(16));
+      Object.assign(data, window.ptVisit ? window.ptVisit() : {}); // campaign, landing page and referring site (js/track.js)
       const btn = $("button[type=submit]", form); btn.disabled = true; btn.style.opacity = ".6";
       try {
         const res = await fetch(form.dataset.endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
         const json = await res.json();
         if (!json.success) throw new Error(json.message);
+        track("generate_lead", { lead_id: data.lead_id, interest: data.interest, requested: requested || "none", page_path: location.pathname });
         form.reset();
         msg.textContent = "Thanks! We'll reply within one working day."; msg.classList.add("ok");
       } catch {
+        track("form_error", { page_path: location.pathname });
         msg.innerHTML = `That didn't send. Please email us at <a href="mailto:info@plutotheory.com">info@plutotheory.com</a>.`; msg.classList.add("err");
       } finally { btn.disabled = false; btn.style.opacity = ""; }
     });

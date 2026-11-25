@@ -54,6 +54,10 @@ const checks = [
     if (!f.error) bad.push("no error message when sending fails");
     return bad;
   }],
+  ["Enquiry source, analytics consent and lead counting", async () => {
+    const r = await run("node", ["check-tracking.mjs", base]);
+    return json(r.out);
+  }],
   // The idea box (check-fixes.mjs) and the chat pop-ups (check-popups.mjs) belonged to the old home page, so they no longer run.
 ];
 
