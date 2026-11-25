@@ -79,7 +79,7 @@ const events = (page) => page.evaluate(() => (window.dataLayer || []).map((a) =>
 for (const send of ["success", "failure"]) {
   const { page, seen, ctx } = await open({ ga: true, send });
   await page.goto(`${base}/contact`, { waitUntil: "networkidle0" });
-  await page.evaluate(() => [...document.querySelectorAll(".pt-consent button")].find((b) => b.textContent === "Accept").click());
+  await page.evaluate(() => [...document.querySelectorAll(".pt-consent button")].find((b) => b.textContent === "Accept cookies").click());
   await wait(400);
   ok(seen.google.length === 1, `after Accept, gtag loaded ${seen.google.length} times`);
   await page.click('.form [type="submit"]'); await wait(300);

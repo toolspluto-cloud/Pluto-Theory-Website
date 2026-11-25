@@ -3,7 +3,7 @@ import { PRODUCTS } from "./products.mjs";
 
 export const SITE = "https://www.plutotheory.com";
 export const EMAIL = "info@plutotheory.com";
-export const V = "11"; // bump to bust caches after CSS/JS changes
+export const V = "12"; // bump to bust caches after CSS/JS changes
 
 const s = (d, extra = "") => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${d}</svg>`;
 export const I = {
