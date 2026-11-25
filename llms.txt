@@ -32,6 +32,7 @@
 
 ## Guides
 
+- [How founders can plan a month of LinkedIn posts from their own expertise](https://www.plutotheory.com/blog/linkedin-content-plan-for-founders): How to choose three to five content pillars, set a realistic posting rhythm, find material in your own week and review a month of LinkedIn posts, with a four-week template.
 - [LinkedIn automation rules: what LinkedIn allows, and what gets accounts restricted](https://www.plutotheory.com/blog/linkedin-automation-rules): What LinkedIn's help pages say about bots, scrapers and browser extensions, why accounts get restricted, and which parts of a LinkedIn content process you can safely automate.
 - [A simple CRM setup for a small sales team: stages, owners and follow-ups](https://www.plutotheory.com/blog/crm-for-small-business-india): How to set up a simple CRM for a small sales team in India: pipeline stages, owners, follow-up rhythm, published tool prices as of November 2026 and where AI helps.
 - [Marketing automation for small businesses in India: where to start without wasting money](https://www.plutotheory.com/blog/marketing-automation-small-business-india): What to automate first as a small business in India, what you need before you start, indicative CRM, email and WhatsApp costs as of November 2026, the rules that apply, and a four-week plan.

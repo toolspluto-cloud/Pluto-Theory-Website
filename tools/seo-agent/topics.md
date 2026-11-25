@@ -15,7 +15,7 @@ come first; studio topics (brand, photography, PR by people) follow.
 - [x] Marketing automation for small businesses in India: where to start without wasting money | marketing automation for small business india -> /blog/marketing-automation-small-business-india
 - [x] A simple CRM setup for a small sales team: stages, owners and follow-ups | crm for small business india -> /blog/crm-for-small-business-india
 - [x] LinkedIn automation: what LinkedIn allows, and what gets accounts restricted | linkedin automation rules -> /blog/linkedin-automation-rules
-- [ ] How founders can plan a month of LinkedIn posts from their own expertise | linkedin content plan for founders
+- [x] How founders can plan a month of LinkedIn posts from their own expertise | linkedin content plan for founders -> /blog/linkedin-content-plan-for-founders
 - [ ] Lead capture vs lead generation: what your business actually needs | lead capture vs lead generation
 - [ ] A weekly Google and Meta ads check: what to look at in 20 minutes | weekly ppc report checklist
 - [ ] Landing pages that turn ad clicks into enquiries (and where the enquiry goes next) | landing page for lead generation
