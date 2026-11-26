@@ -535,6 +535,7 @@ page("how-it-works.html", {
 </section>
 <section class="section"><div class="wrap"><div class="head head--center"><span class="eyebrow" data-reveal>Who does what</span><h2 class="h-lg words" data-in>${words("70% automated. 30% people.")}</h2></div>${split7030()}</div></section>
 <section class="section--tight"><div class="wrap wrap--narrow"><div class="head head--center"><h2 class="h-md words" data-in>${words("Common questions")}</h2></div>${faq([
+  ["Which business tasks can be automated with AI?", `Repetitive, rule-based work that happens often is the best fit. In marketing, that means SEO checks, lead capture and follow-up, CRM updates, WhatsApp replies, LinkedIn and Instagram content drafts, performance marketing reporting, PR workflow and landing pages. Each of these has an automation here, all in early access, and pricing is shared on a demo. For examples across a whole business, read <a class="link" href="/blog/business-tasks-to-automate-with-ai">15 business tasks you can automate with AI</a>.`],
   ["Is setup done for me?", "In early access, we set up each automation with you. We will always tell you before you subscribe if any step needs our help."],
   ["What if a connection breaks?", "The workspace shows it as Needs attention, with the issue and what to do next. Work that depends on it pauses rather than guessing."],
   ["What if nothing ran this week?", "The workspace says so. A quiet week is shown as a quiet week, not hidden."],
